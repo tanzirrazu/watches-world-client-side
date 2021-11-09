@@ -1,0 +1,8 @@
+.dropdown-toggle::after {
+	display: none !important;
+}
+.dropdown-menu {
+	margin-left: -50px !important;
+	margin-top: 10px !important;
+	width: 200px !important;
+}
