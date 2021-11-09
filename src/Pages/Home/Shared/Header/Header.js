@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UseAuth from '../../../../hooks/UseAuth/UseAuth';
 import logo from '../../../../image/logo (2).png';
 import './Header.css';
 const Header = () => {
-	// const { user, logOut } = useAuth();
+	const { user, logOut } = UseAuth();
 	return (
 		<div
 			style={{
-				backgroundColor: '#ee9b00',
+				backgroundColor: '#f1faee',
 			}}>
 			<nav className='navbar navbar-expand-lg navbar-light'>
 				<div className='container'>
@@ -44,68 +45,74 @@ const Header = () => {
 							</li>
 							<Link to='/dashboard'>
 								{' '}
-								<button className='btn btn-danger ms-2'>DashBoard</button>
+								<button className='btn btn-danger ms-2'>
+									<i className='fas fa-th-large'></i>
+								</button>
 							</Link>
 						</ul>
 
-						<div className='btn-group ms-3'>
-							<div
-								className='dropdown-toggle'
-								data-bs-toggle='dropdown'
-								style={{ cursor: 'pointer' }}
-								aria-expanded='false'>
-								<div>
-									<img
-										// src={user.photoURL}
-										style={{
-											width: '50px',
-											height: '50px',
-											borderRadius: '50%',
-										}}
-										alt=''
-									/>
-								</div>
-							</div>
-							<ul className='dropdown-menu'>
-								<li>
-									<a className='dropdown-item text-center' href='#'>
+						{user.email ? (
+							<div className='btn-group ms-3'>
+								<div
+									className='dropdown-toggle'
+									data-bs-toggle='dropdown'
+									style={{ cursor: 'pointer' }}
+									aria-expanded='false'>
+									<div>
 										<img
-											src=''
+											src={user.photoURL}
 											style={{
-												width: '70px',
-												height: '70px',
+												width: '50px',
+												height: '50px',
 												borderRadius: '50%',
 											}}
 											alt=''
 										/>
-										<hr />
-									</a>
-								</li>
-								<li>
-									<a className='dropdown-item' href='#'>
-										{/* {user.displayName} */}
-									</a>
-								</li>
-								<li>
-									<a className='dropdown-item' href='#'>
-										Something else here
-									</a>
-								</li>
-								<hr />
-								<li className='dropdown-item'>
-									<button className='btn btn-danger '>LogOut</button>
-								</li>
-							</ul>
-						</div>
-
-						<div className='d-flex'>
-							<div>
-								<Link to='/login'>
-									{' '}
-									<button className='btn btn-danger ms-2'>Login</button>
-								</Link>
+									</div>
+								</div>
+								<ul className='dropdown-menu'>
+									<li>
+										<a className='dropdown-item text-center' href='#'>
+											<img
+												src={user.photoURL}
+												style={{
+													width: '70px',
+													height: '70px',
+													borderRadius: '50%',
+												}}
+												alt=''
+											/>
+											<hr />
+										</a>
+									</li>
+									<li>
+										<a className='dropdown-item' href='#'>
+											{user.displayName}
+										</a>
+									</li>
+									<li>
+										<a className='dropdown-item' href='#'>
+											Something else here
+										</a>
+									</li>
+									<hr />
+									<li className='dropdown-item'>
+										<button onClick={logOut} className='btn btn-danger'>
+											LogOut
+										</button>
+									</li>
+								</ul>
 							</div>
-						</div>
+						) : (
+							<div className='d-flex'>
+								<div>
+									<Link to='/login'>
+										{' '}
+										<button className='btn btn-danger ms-2'>Login</button>
+									</Link>
+								</div>
+							</div>
+						)}
 					</div>
 				</div>
 			</nav>

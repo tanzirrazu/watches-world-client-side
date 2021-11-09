@@ -6,20 +6,22 @@ const Footer = () => {
 			style={{
 				paddingTop: '80px',
 				paddingBottom: '80px',
-				backgroundColor: '#ee9b00',
+				backgroundColor: '#f1faee',
 			}}>
 			<div className='row container-fluid mx-auto row-cols-1 row-cols-md-4 g-4'>
 				{/* first colomn */}
 				<div className='col'>
-					<div className='mb-5'>
-						<div className='me-3'>
+					<div>
+						<div>
 							<img src={logo} className='img-fluid' width='200px' alt='' />
 						</div>
-						<div className='text-white'>
+						<div className='text-dark'>
 							<span>
-								H#000 (0th Floor), Road #00,
+								Office: 10/3, 9th Floor, Eastern Plaza, Hatirpool
 								<br />
-								New DOHS, Mohakhali, Dhaka, Bangladesh
+								Dhaka – 1205 Phone:446579879846
+								<br />
+								E-Mail: tanzirrazu@gmail.com
 							</span>
 						</div>
 					</div>
@@ -27,22 +29,23 @@ const Footer = () => {
 				{/* second colomn */}
 				<div className='col'>
 					<div className='mb-3'>
-						<h4 className='text-white'>Company</h4>
-						<div className='text-white'>
-							<a className='d-block text-decoration-none text-white' href='#'>
+						<h4 className='text-dark'>Company</h4>
+						<div className='text-dark'>
+							<a className='d-block text-decoration-none text-dark' href='#'>
 								About
 							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Project
+
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								Our Products
 							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Our Team
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								EMI
 							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								Discount Offer
+							</a>
+							<a className='d-block text-decoration-none text-dark' href='#'>
 								Terms Conditons
-							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Submit Listing
 							</a>
 						</div>
 					</div>
@@ -50,22 +53,23 @@ const Footer = () => {
 				{/* third colomn */}
 				<div className='col'>
 					<div className='mb-3'>
-						<h4 className='text-white'>Quick Links</h4>
-						<div className='text-white'>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Quick Links
+						<h4 className='text-dark'>Supports</h4>
+						<div className='text-dark'>
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								New User Guide
 							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Rentals
+
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								Return & Refund
 							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Sales
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								Help Center
 							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Contact
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								Warranty Policy
 							</a>
-							<a className='d-block text-decoration-none text-white' href='#'>
-								Our blog
+							<a className='d-block text-decoration-none text-dark' href='#'>
+								Frequently Asked Questions
 							</a>
 						</div>
 					</div>
@@ -73,88 +77,42 @@ const Footer = () => {
 				{/* fourth colomn */}
 				<div className='col'>
 					<div className='mb-3'>
-						<h4 className='text-white'>About Us</h4>
+						<h4 className='text-dark'>About Us</h4>
 						<div>
-							<span className='text-white'>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-								possimus blanditiis illo tempora suscipit saepe necessitatibus nostrum
-								dolorum aperiam praesentium.
+							<span className='text-dark'>
+								Watches World is the biggest Gadget importer company in Bangladesh.
+								Motion View is operating in the technology arena since 2012. Introducing
+								popular and new smart gadget in the country is main target.
 							</span>
 							<div className='d-flex mt-3'>
 								<div className='me-3'>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										className='icon icon-tabler icon-tabler-brand-facebook'
-										width='30'
-										height='30'
-										viewBox='0 0 24 24'
-										strokeWidth='1.5'
-										stroke='#2c3e50'
-										fill='white'
-										strokeLinecap='round'
-										strokeLinejoin='round'>
-										<path stroke='none' d='M0 0h24v24H0z' fill='white' />
-										<path d='M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3' />
-									</svg>
+									<button type='button' className='btn btn-danger btn-lg btn-floating'>
+										<i className='fab fa-facebook-f'></i>
+									</button>
 								</div>
 								<div className='me-3'>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										className='icon icon-tabler icon-tabler-brand-twitter'
-										width='30'
-										height='30'
-										viewBox='0 0 24 24'
-										strokeWidth='1.5'
-										stroke='#2c3e50'
-										fill='none'
-										strokeLinecap='round'
-										strokeLinejoin='round'>
-										<path stroke='none' d='M0 0h24v24H0z' fill='white' />
-										<path d='M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z' />
-									</svg>
+									<button type='button' className='btn btn-danger btn-lg btn-floating '>
+										<i className='fab fa-twitter-square'></i>
+									</button>
 								</div>
 								<div className='me-3'>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										className='icon icon-tabler icon-tabler-brand-instagram'
-										width='30'
-										height='30'
-										viewBox='0 0 24 24'
-										strokeWidth='1.5'
-										stroke='#2c3e50'
-										fill='none'
-										strokeLinecap='round'
-										strokeLinejoin='round'>
-										<path stroke='none' d='M0 0h24v24H0z' fill='white' />
-										<rect x='4' y='4' width='16' height='16' rx='4' />
-										<circle cx='12' cy='12' r='3' />
-										<line x1='16.5' y1='7.5' x2='16.5' y2='7.501' />
-									</svg>
+									<button type='button' className='btn btn-danger btn-lg btn-floating'>
+										<i className='fab fa-instagram'></i>
+									</button>
 								</div>
 								<div className='me-3'>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										className='icon icon-tabler icon-tabler-brand-linkedin'
-										width='30'
-										height='30'
-										viewBox='0 0 24 24'
-										strokeWidth='1.5'
-										stroke='#2c3e50'
-										fill='none'
-										strokeLinecap='round'
-										strokeLinejoin='round'>
-										<path stroke='none' d='M0 0h24v24H0z' fill='white' />
-										<rect x='4' y='4' width='16' height='16' rx='2' />
-										<line x1='8' y1='11' x2='8' y2='16' />
-										<line x1='8' y1='8' x2='8' y2='8.01' />
-										<line x1='12' y1='16' x2='12' y2='11' />
-										<path d='M16 16v-3a2 2 0 0 0 -4 0' />
-									</svg>
+									<button type='button' className='btn btn-danger btn-lg btn-floating'>
+										<i className='fab fa-linkedin'></i>
+									</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+			<hr />
+			<div className='text-center text-dark'>
+				<p>Watches-World © Copyright: 2021 | Design By Tanzir Razu</p>
 			</div>
 		</div>
 	);
