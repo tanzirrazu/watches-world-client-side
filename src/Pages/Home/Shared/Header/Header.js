@@ -43,16 +43,16 @@ const Header = () => {
 									Contact Us
 								</Link>
 							</li>
-							<Link to='/dashboard'>
-								{' '}
-								<button className='btn btn-danger ms-2'>
-									<i className='fas fa-th-large'></i>
-								</button>
-							</Link>
 						</ul>
 
 						{user.email ? (
-							<div className='btn-group ms-3'>
+							<div className='btn-group '>
+								<Link to='/dashboard'>
+									{' '}
+									<button className='btn btn-danger mt-1 me-3'>
+										<i className='fas fa-th-large'></i>
+									</button>
+								</Link>
 								<div
 									className='dropdown-toggle'
 									data-bs-toggle='dropdown'

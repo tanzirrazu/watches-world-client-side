@@ -1,7 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import UseAuth from '../../hooks/UseAuth/UseAuth';
 import logo from '../../image/logo (2).png';
 const Register = () => {
+	const [loginData, setLoginData] = useState({});
+	const history = useHistory();
+	const { user, registerUser, isLoading, authError } = UseAuth();
+	// !  input handel
+	const handleOnBlur = (e) => {
+		const field = e.target.name;
+		const value = e.target.value;
+		const newLoginData = { ...loginData };
+		newLoginData[field] = value;
+		console.log(newLoginData);
+		setLoginData(newLoginData);
+	};
+	// ! form handel
+	const handleLoginSubmit = (e) => {
+		if (loginData.password !== loginData.password2) {
+			alert('Your password did not match');
+			return;
+		}
+		registerUser(loginData.email, loginData.password, loginData.name, history);
+		e.preventDefault();
+	};
 	return (
 		<div className='vh-100'>
 			<div className='container py-5 h-100'>
@@ -18,35 +40,56 @@ const Register = () => {
 						/>
 					</div>
 					<div className='col-md-7 col-lg-5 col-xl-5 offset-xl-1'>
-						<form>
+						<form onSubmit={handleLoginSubmit}>
 							<div className='form-outline mb-4'>
 								<input
+									onBlur={handleOnBlur}
 									type='text'
 									placeholder='Enter Your Name'
+									name='name'
 									className='form-control form-control-lg'
 								/>
 							</div>
 							<div className='form-outline mb-4'>
 								<input
+									onBlur={handleOnBlur}
 									type='email'
+									name='email'
 									placeholder='Enter Your Email'
 									className='form-control form-control-lg'
 								/>
 							</div>
 							<div className='form-outline mb-4'>
 								<input
+									onBlur={handleOnBlur}
 									type='password'
+									name='password'
 									placeholder='Password'
 									className='form-control form-control-lg'
 								/>
 							</div>
 							<div className='form-outline mb-4'>
 								<input
+									onBlur={handleOnBlur}
 									type='password'
 									placeholder='Confirm Password'
+									name='password2'
 									className='form-control form-control-lg'
 								/>
 							</div>
+							{isLoading && (
+								<div className='d-flex justify-content-center'>
+									<div className='spinner-border' role='status'>
+										<span className='sr-only'>Loading...</span>
+									</div>
+								</div>
+							)}
+							{/* {user?.email && window.alert('	User Created successfully')} */}
+							{authError && (
+								<div className='alert alert-danger' role='alert'>
+									{authError}
+								</div>
+							)}
 							<div className='text-center'>
 								<button type='submit' className='btn btn-primary form-control'>
 									Create a Acoount
@@ -66,7 +109,7 @@ const Register = () => {
 									role='button'>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
-										class='icon icon-tabler icon-tabler-brand-google'
+										className='icon icon-tabler icon-tabler-brand-google'
 										width='56'
 										height='56'
 										viewBox='0 0 24 24'

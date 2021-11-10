@@ -2,11 +2,12 @@ import React from 'react';
 import logo from '../../../image/logo (2).png';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import AddRating from '../AddRating/AddRating';
+import AddProducts from '../AddProducts/AddProducts';
 
 const DashBorad = () => {
 	let { path, url } = useRouteMatch();
 	return (
-		<div className='py-3' style={{ backgroundColor: '#fff8f5' }}>
+		<div className='py-3 vh-100' style={{ backgroundColor: '#fff8f5' }}>
 			<div className='d-flex align-items-center'>
 				<Link to='/home' className='navbar-brand' href='#'>
 					<img src={logo} width='160px' alt='' />
@@ -29,6 +30,9 @@ const DashBorad = () => {
 					<Link to={`${url}/addRating`} className='nav-link text-dark'>
 						<span className='ms-2'>&#43; Rating</span>{' '}
 					</Link>
+					<Link to={`${url}/addaddProducts`} className='nav-link text-dark'>
+						<span className='ms-2'>&#43; Products</span>{' '}
+					</Link>
 					<Link to={`${url}/makeAdmin`} className='nav-link text-dark'>
 						<span className='ms-2'>&#128101; Make Admin</span>{' '}
 					</Link>
@@ -43,6 +47,9 @@ const DashBorad = () => {
 						<Route exact path={`${path}/book`}></Route>
 						<Route path={`${path}/addRating`}>
 							<AddRating />
+						</Route>
+						<Route path={`${path}/addaddProducts`}>
+							<AddProducts />
 						</Route>
 					</Switch>
 				</div>

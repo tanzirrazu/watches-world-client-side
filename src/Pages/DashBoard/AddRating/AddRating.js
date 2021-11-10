@@ -14,7 +14,7 @@ const AddRating = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.insertedId) {
-					alert('user added succesfully');
+					alert('Rating added succesfully');
 					reset();
 				}
 			});

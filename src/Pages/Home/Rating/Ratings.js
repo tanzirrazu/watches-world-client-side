@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/components/pagination';
+import 'swiper/components/effect-coverflow';
 import 'swiper/components/navigation';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-import SwiperCore, { Pagination, Autoplay, Navigation } from 'swiper/core';
+import SwiperCore, { Pagination, EffectCoverflow, Autoplay } from 'swiper/core';
 import Rating from 'react-rating';
-SwiperCore.use([Pagination, Autoplay, Navigation]);
+SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
 const Ratings = () => {
 	const [reviews, setReviews] = useState([]);
 	useEffect(() => {
@@ -19,15 +20,32 @@ const Ratings = () => {
 			});
 	}, []);
 	return (
-		<div className='my-5 '>
+		<div
+			style={{
+				marginTop: '60px',
+				marginBottom: '60px',
+			}}>
 			<div className='text-center'>
-				<h1 className='fw-bold my-5'>
+				<h1 className='fw-bold mb-5 text-decoration-underline'>
 					Our <i className='far fa-smile text-warning'></i> Customer's
 				</h1>
 			</div>
-			<div className='container'>
+
+			<div className='container-fluid'>
 				<Swiper
-					slidesPerView={3}
+					effect={'coverflow'}
+					effect={'coverflow'}
+					grabCursor={true}
+					centeredSlides={true}
+					slidesPerView={'auto'}
+					coverflowEffect={{
+						'rotate': 50,
+						'stretch': 0,
+						'depth': 100,
+						'modifier': 1,
+						'slideShadows': true,
+					}}
+					slidesPerView={'auto'}
 					spaceBetween={30}
 					pagination={{
 						'clickable': true,
@@ -40,7 +58,6 @@ const Ratings = () => {
 					pagination={{
 						'clickable': true,
 					}}
-					navigation={true}
 					breakpoints={{
 						'320': {
 							'slidesPerView': 1,
@@ -61,8 +78,8 @@ const Ratings = () => {
 					}}
 					className='mySwiper'>
 					{reviews.map((review) => (
-						<div key={review?._id} review={review}>
-							<SwiperSlide>
+						<div key={review?._id} review={review} className='mt-5'>
+							<SwiperSlide className='my-5'>
 								<div className='p-5 shadow-lg' style={{ height: '360px' }}>
 									<div className='d-flex'>
 										<img style={{ width: '70px' }} src={review.photurl} alt=''></img>

@@ -1,9 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Alert } from 'react-bootstrap';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import UseAuth from '../../hooks/UseAuth/UseAuth';
 import logo from '../../image/logo (2).png';
 const Login = () => {
-	const { googleSignin } = UseAuth();
+	const { googleSignin, loginUser, isLoading, authError, user } = UseAuth();
+	const [loginData, setLoginData] = useState({});
+
+	const location = useLocation();
+	const history = useHistory();
+
+	const handleOnChange = (e) => {
+		const field = e.target.name;
+		const value = e.target.value;
+		const newLoginData = { ...loginData };
+		newLoginData[field] = value;
+		setLoginData(newLoginData);
+	};
+	const handleLoginSubmit = (e) => {
+		loginUser(loginData.email, loginData.password, location, history);
+		e.preventDefault();
+	};
+
+	const handleGoogleSignIn = () => {
+		googleSignin(location, history);
+	};
 	return (
 		<div className='vh-100'>
 			<div className='container py-5 h-100'>
@@ -20,17 +41,21 @@ const Login = () => {
 						/>
 					</div>
 					<div className='col-md-7 col-lg-5 col-xl-5 offset-xl-1'>
-						<div>
+						<form onSubmit={handleLoginSubmit}>
 							<div className='form-outline mb-4'>
 								<input
+									onChange={handleOnChange}
 									type='email'
+									name='email'
 									placeholder='Enter Your Email'
 									className='form-control form-control-lg'
 								/>
 							</div>
 							<div className='form-outline mb-4'>
 								<input
+									onChange={handleOnChange}
 									type='password'
+									name='password'
 									placeholder='Password'
 									className='form-control form-control-lg'
 								/>
@@ -49,11 +74,11 @@ const Login = () => {
 							<div className='text-center'>
 								<button
 									className='btn btn-primary btn-lg'
-									onClick={googleSignin}
+									onClick={handleGoogleSignIn}
 									style={{ backgroundColor: '#55acee' }}>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
-										class='icon icon-tabler icon-tabler-brand-google'
+										className='icon icon-tabler icon-tabler-brand-google'
 										width='56'
 										height='56'
 										viewBox='0 0 24 24'
@@ -68,7 +93,28 @@ const Login = () => {
 									<span> Continue with Google</span>
 								</button>
 							</div>
-						</div>
+						</form>
+						{isLoading && (
+							<div className='d-flex justify-content-center'>
+								<div className='spinner-border' role='status'>
+									<span className='sr-only'>Loading...</span>
+								</div>
+							</div>
+						)}
+						{/* {user.email && <Alert  variant="success">
+        <Alert.Heading>How's it going?!</Alert.Heading>
+        <p>
+          Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+          lacinia odio sem nec elit. Cras mattis consectetur purus sit amet
+          fermentum.
+        </p>
+        
+      </Alert> } */}
+						{authError && (
+							<div className='alert alert-danger' role='alert'>
+								{authError}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
