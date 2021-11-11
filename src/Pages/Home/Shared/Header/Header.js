@@ -33,8 +33,8 @@ const Header = () => {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link to='/teams' className='nav-link active'>
-									Our Teams
+								<Link to='/allproducts' className='nav-link active'>
+									Our Products
 								</Link>
 							</li>
 
@@ -90,11 +90,7 @@ const Header = () => {
 											{user.displayName}
 										</a>
 									</li>
-									<li>
-										<a className='dropdown-item' href='#'>
-											Something else here
-										</a>
-									</li>
+
 									<hr />
 									<li className='dropdown-item'>
 										<button onClick={logOut} className='btn btn-danger'>

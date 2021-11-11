@@ -20,9 +20,9 @@ const AddProducts = () => {
 			});
 	};
 	return (
-		<div className='mt-5 vh-100'>
-			<h1 className='fw-bold text-center mt-3'>
-				Add a <span className='text-danger '>Product</span>{' '}
+		<div className='py-3 bg-white'>
+			<h1 className='fw-bold text-center mt-3 text-decoration-underline'>
+				Add a <span className='text-danger text-decoration-underline'>Product</span>{' '}
 			</h1>
 			<form onSubmit={handleSubmit(onSubmit)} className='my-5 container'>
 				<input

@@ -28,7 +28,9 @@ const Register = () => {
 		<div className='vh-100'>
 			<div className='container py-5 h-100'>
 				<div className='text-center'>
-					<img src={logo} className='img-fluid' width='220px' alt='' />
+					<Link to='/home'>
+						<img src={logo} className='img-fluid' width='220px' alt='' />
+					</Link>
 				</div>
 				<hr />
 				<div className='row d-flex align-items-center justify-content-center h-100'>

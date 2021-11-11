@@ -3,7 +3,7 @@ import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 
 const Product = (props) => {
-	const { modelName, price, imageUrl, rate, standby, warranty, color } =
+	const { modelName, price, imageUrl, rate, standby, warranty, color, _id } =
 		props.product;
 	return (
 		<div className='col'>
@@ -33,8 +33,8 @@ const Product = (props) => {
 						<div className='text-success'>
 							<h5 className='mt-4'>${price}</h5>
 						</div>
-						<Link to='#' className='btn btn-danger mt-3'>
-							<i className='fas fa-shopping-cart'></i>+ to Cart
+						<Link to={`/buynow/${_id}`} className='btn btn-danger mt-3'>
+							<i className='fas fa-shopping-cart'></i> Buy Now
 						</Link>
 					</div>
 				</div>

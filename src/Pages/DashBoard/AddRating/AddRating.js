@@ -21,7 +21,7 @@ const AddRating = () => {
 		console.log(data);
 	};
 	return (
-		<div className='mt-5 vh-100'>
+		<div className='py-5 vh-100 bg-white'>
 			<h1 className='fw-bold text-center mt-3'>
 				Add User <span className='text-danger '>Rating</span>{' '}
 			</h1>

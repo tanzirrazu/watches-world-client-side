@@ -8,37 +8,51 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import DashBorad from './Pages/DashBoard/DashBoard/DashBoard';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import PrivetRoute from './PrivetRoute/PrivetRoute';
+import BuyNow from './Pages/BuyNow/BuyNow';
+
+import { positions, Provider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+
+const options = {
+	timeout: 3000,
+	position: positions.TOP_CENTER,
+};
 
 function App() {
 	return (
 		<div className='App'>
-			<AuthProvider>
-				<Router>
-					<Switch>
-						<Route exact path='/'>
-							<Home />
-						</Route>
-						<Route path='/home'>
-							<Home />
-						</Route>
-						<Route path='/allproducts'>
-							<AllProducts />
-						</Route>
-						<Route path='/login'>
-							<Login />
-						</Route>
-						<Route path='/register'>
-							<Register />
-						</Route>
-						<PrivetRoute path='/dashboard'>
-							<DashBorad />
-						</PrivetRoute>
-						<Route path='*'>
-							<NotFound />
-						</Route>
-					</Switch>
-				</Router>
-			</AuthProvider>
+			<Provider template={AlertTemplate} {...options}>
+				<AuthProvider>
+					<Router>
+						<Switch>
+							<Route exact path='/'>
+								<Home />
+							</Route>
+							<Route path='/home'>
+								<Home />
+							</Route>
+							<Route path='/allproducts'>
+								<AllProducts />
+							</Route>
+							<Route path='/login'>
+								<Login />
+							</Route>
+							<Route path='/register'>
+								<Register />
+							</Route>
+							<PrivetRoute path='/dashboard'>
+								<DashBorad />
+							</PrivetRoute>
+							<PrivetRoute path='/buynow/:id'>
+								<BuyNow />
+							</PrivetRoute>
+							<Route path='*'>
+								<NotFound />
+							</Route>
+						</Switch>
+					</Router>
+				</AuthProvider>
+			</Provider>
 		</div>
 	);
 }

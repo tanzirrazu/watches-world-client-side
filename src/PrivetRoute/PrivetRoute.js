@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
 import { Redirect, Route } from 'react-router';
 import UseAuth from '../hooks/UseAuth/UseAuth';
 
@@ -6,10 +7,12 @@ const PrivetRoute = ({ children, ...rest }) => {
 	const { user, isLoading } = UseAuth();
 	if (isLoading) {
 		return (
-			<div className='d-flex justify-content-center'>
-				<div className='spinner-border' role='status'>
-					<span className='sr-only'>Loading...</span>
-				</div>
+			<div className='position-relative'>
+				<Spinner
+					className='position-absolute top-100 start-50 translate-middle'
+					animation='grow'
+					variant='danger'
+				/>
 			</div>
 		);
 	}

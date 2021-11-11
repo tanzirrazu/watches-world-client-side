@@ -15,7 +15,7 @@ initialization();
 const UseFirebase = () => {
 	const [user, setUser] = useState({});
 	const [authError, setAuthError] = useState('');
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const auth = getAuth();
 	const googleProvider = new GoogleAuthProvider();
@@ -97,6 +97,7 @@ const UseFirebase = () => {
 		});
 		return () => unsubscribed;
 	}, [auth]);
+
 	return {
 		googleSignin,
 		user,

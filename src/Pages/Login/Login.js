@@ -3,10 +3,10 @@ import { Alert } from 'react-bootstrap';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import UseAuth from '../../hooks/UseAuth/UseAuth';
 import logo from '../../image/logo (2).png';
+
 const Login = () => {
 	const { googleSignin, loginUser, isLoading, authError, user } = UseAuth();
 	const [loginData, setLoginData] = useState({});
-
 	const location = useLocation();
 	const history = useHistory();
 
@@ -29,7 +29,9 @@ const Login = () => {
 		<div className='vh-100'>
 			<div className='container py-5 h-100'>
 				<div className='text-center'>
-					<img src={logo} className='img-fluid' width='220px' alt='' />
+					<Link to='/home'>
+						<img src={logo} className='img-fluid' width='220px' alt='' />
+					</Link>
 				</div>
 				<hr />
 				<div className='row d-flex align-items-center justify-content-center h-100'>
