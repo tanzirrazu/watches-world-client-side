@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from '../../../../image/logo (2).png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Footer = () => {
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
 		<div
 			style={{
@@ -10,7 +15,7 @@ const Footer = () => {
 			}}>
 			<div className='row container-fluid mx-auto row-cols-1 row-cols-md-4 g-4'>
 				{/* first colomn */}
-				<div className='col'>
+				<div className='col' data-aos='zoom-out-up' data-aos-duration='2000'>
 					<div>
 						<div>
 							<img src={logo} className='img-fluid' width='200px' alt='' />
@@ -27,7 +32,7 @@ const Footer = () => {
 					</div>
 				</div>
 				{/* second colomn */}
-				<div className='col'>
+				<div className='col' data-aos='zoom-out-down' data-aos-duration='2000'>
 					<div className='mb-3'>
 						<h4 className='text-dark'>Company</h4>
 						<div className='text-dark'>
@@ -51,7 +56,7 @@ const Footer = () => {
 					</div>
 				</div>
 				{/* third colomn */}
-				<div className='col'>
+				<div className='col' data-aos='zoom-out-up' data-aos-duration='2000'>
 					<div className='mb-3'>
 						<h4 className='text-dark'>Supports</h4>
 						<div className='text-dark'>
@@ -75,7 +80,7 @@ const Footer = () => {
 					</div>
 				</div>
 				{/* fourth colomn */}
-				<div className='col'>
+				<div className='col' data-aos='zoom-out-down' data-aos-duration='2000'>
 					<div className='mb-3'>
 						<h4 className='text-dark'>About Us</h4>
 						<div>

@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UseAuth from '../../../../hooks/UseAuth/UseAuth';
 import logo from '../../../../image/logo (2).png';
 import './Header.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Header = () => {
 	const { user, logOut } = UseAuth();
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
 		<div
 			style={{
 				backgroundColor: '#f1faee',
-			}}>
-			<nav className='navbar navbar-expand-lg navbar-light'>
+			}}
+			data-aos='fade-right'
+			data-aos-duration='2000'
+			id='header'>
+			<nav
+				className='navbar navbar-expand-lg navbar-light'
+				style={{ zIndex: 1020, position: 'relative' }}
+				id='content'>
 				<div className='container'>
 					<Link to='/home' className='navbar-brand' href='#'>
 						<img src={logo} width='160px' alt='' />
@@ -46,7 +57,7 @@ const Header = () => {
 						</ul>
 
 						{user.email ? (
-							<div className='btn-group '>
+							<div className='btn-group'>
 								<Link to='/dashboard'>
 									{' '}
 									<button className='btn btn-danger mt-1 me-3'>

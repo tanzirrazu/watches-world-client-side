@@ -5,7 +5,9 @@ import Footer from '../Home/Shared/Footer/Footer';
 import Header from '../Home/Shared/Header/Header';
 import { useForm } from 'react-hook-form';
 import { useAlert } from 'react-alert';
+import { useDocTitle } from '../../hooks/DocumentTitel/DocumentTitel';
 const BuyNow = () => {
+	useDocTitle('Buy Now');
 	const [details, setDetails] = useState([]);
 	let history = useHistory();
 	const alert = useAlert();
@@ -156,6 +158,8 @@ const BuyNow = () => {
 						<div className='my-3'>
 							<h4 className='fw-bold'>{details.modelName}</h4>
 							<span className='fw-bold'>{details.displaySize}</span>
+							<br />
+							<span className='fw-bold'>{details.warranty}</span>
 							<br />
 							<span className='fw-bold'>Price: ${details.price}</span>
 							<br />

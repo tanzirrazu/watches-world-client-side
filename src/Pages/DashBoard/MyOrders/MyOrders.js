@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import UseAuth from '../../../hooks/UseAuth/UseAuth';
 import { useAlert } from 'react-alert';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const MyOrders = () => {
 	const [myOrders, setMyorders] = useState([]);
 	const [control, setControl] = useState(false);
@@ -27,6 +28,9 @@ const MyOrders = () => {
 				}
 			});
 	};
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	useDocTitle('My Orders');
 	return (
 		<div
@@ -37,7 +41,11 @@ const MyOrders = () => {
 			className='bg-white vh-100'>
 			<div className='row mx-auto row-cols-1 row-cols-sm-2 row-cols-md-3 g-4'>
 				{myOrders.map((orders) => (
-					<div key={orders._id} className='col'>
+					<div
+						key={orders._id}
+						className='col'
+						data-aos='fade-left'
+						data-aos-duration='2000'>
 						<div
 							className='d-flex align-items-center justify-content-evenly shadow p-3'
 							style={{ height: '220px' }}>

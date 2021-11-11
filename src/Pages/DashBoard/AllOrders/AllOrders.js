@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAlert } from 'react-alert';
 import { Table } from 'react-bootstrap';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const AllOrders = () => {
 	const [control, setControl] = useState(false);
 	const [orders, setOrders] = useState([]);
@@ -27,6 +28,9 @@ const AllOrders = () => {
 				}
 			});
 	};
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	useDocTitle('All Orders');
 	return (
 		<div
@@ -36,7 +40,7 @@ const AllOrders = () => {
 				marginBottom: '60px',
 			}}>
 			<Table striped bordered hover>
-				<thead>
+				<thead data-aos='fade-left' data-aos-duration='2000'>
 					<tr>
 						<th>#</th>
 						<th>Email</th>
@@ -48,7 +52,7 @@ const AllOrders = () => {
 				</thead>
 				{orders?.map((order, index) => (
 					<tbody key={order._id}>
-						<tr>
+						<tr data-aos='fade-left' data-aos-duration='2000'>
 							<td>{index}</td>
 							<td>{order?.email}</td>
 							<td>{order.modelName}</td>

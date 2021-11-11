@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const AddRating = () => {
 	const { register, reset, handleSubmit } = useForm();
 
@@ -21,13 +23,23 @@ const AddRating = () => {
 			});
 		console.log(data);
 	};
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	useDocTitle('Add Rating');
 	return (
 		<div className='py-5 vh-100 bg-white'>
-			<h1 className='fw-bold text-center mt-3'>
+			<h1
+				className='fw-bold text-center mt-3'
+				data-aos='fade-down'
+				data-aos-duration='2000'>
 				Add User <span className='text-danger '>Rating</span>{' '}
 			</h1>
-			<form onSubmit={handleSubmit(onSubmit)} className='my-5 container'>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className='my-5 container'
+				data-aos='fade-down'
+				data-aos-duration='2000'>
 				<input
 					className='form-control mb-3'
 					{...register('fullName')}

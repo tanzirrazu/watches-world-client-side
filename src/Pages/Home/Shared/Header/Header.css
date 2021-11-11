@@ -6,3 +6,19 @@
 	margin-top: 10px !important;
 	width: 200px !important;
 }
+.dashboard {
+	margin-left: 100px !important;
+}
+#header {
+	position: relative;
+	z-index: 50;
+}
+#content {
+	position: relative;
+	z-index: 50;
+}
+.header .header-nav ul#nav-account ul.dropdown-menu,
+.header .header-nav ul#nav-library ul.dropdown-menu {
+	position: absolute;
+	z-index: 10000;
+}

@@ -46,36 +46,40 @@ const AllProducts = () => {
 					</h1>
 				</div>
 				<div>
-					<div className='row container mx-auto  row-cols-1  row-cols-md-3 g-4'>
+					<div className='row container mx-auto  row-cols-1  row-cols-md-4 g-4'>
 						{allProducts.map((products) => (
 							<div key={products._id} className='col'>
-								<div className='card'>
-									<img className='img-fluid' src={products.imageUrl} alt='Vans' />
+								<div className='card pt-3'>
+									<img
+										className='img-fluid'
+										style={{ width: '200px', margin: '0 auto' }}
+										src={products.imageUrl}
+										alt='Vans'
+									/>
 
 									<div className='card-body'>
-										<h4 className='card-title'>{products.modelName}</h4>
-										<h6 className='card-subtitle mb-2 text-warning'>
+										<h6 className='fw-bold'>{products.modelName}</h6>
+										<span className='card-subtitle mb-2 text-warning'>
 											<Rating
 												fullSymbol='fas fa-star'
 												emptySymbol='far fa-star'
 												readonly
 												initialRating={products.rate}></Rating>
-										</h6>
-										<li>
-											<span>{products.standby} battary life</span>
-										</li>
-										<li>
-											<span>Color: {products.color} </span>
-										</li>
-										<li>
-											<span>{products.warranty}</span>
-										</li>
+										</span>
+										<br />
+										<span>{products.standby} battary life</span>
 
-										<div className='buy d-flex justify-content-between align-items-center'>
+										<br />
+										<span>Color: {products.color} </span>
+										<br />
+
+										<div className='d-lg-flex justify-content-between align-items-center'>
 											<div className='text-success'>
-												<h5 className='mt-4'>${products.price}</h5>
+												<h6 className='mt-4'>${products.price}</h6>
 											</div>
-											<Link to={`/buynow/${products._id}`} className='btn btn-danger mt-3'>
+											<Link
+												to={`/buynow/${products._id}`}
+												className='btn btn-danger btn-sm mt-3'>
 												<i className='fas fa-shopping-cart'></i> Buy Now
 											</Link>
 										</div>

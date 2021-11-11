@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import { Alert } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { useDocTitle } from '../../hooks/DocumentTitel/DocumentTitel';
 import UseAuth from '../../hooks/UseAuth/UseAuth';
 import logo from '../../image/logo (2).png';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Login = () => {
 	const { googleSignin, loginUser, isLoading, authError, user } = UseAuth();
 	const [loginData, setLoginData] = useState({});
 	const location = useLocation();
 	const history = useHistory();
 
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	const handleOnChange = (e) => {
 		const field = e.target.name;
 		const value = e.target.value;
@@ -26,6 +30,7 @@ const Login = () => {
 	const handleGoogleSignIn = () => {
 		googleSignin(location, history);
 	};
+
 	useDocTitle('Login');
 	return (
 		<div className='vh-100'>
@@ -37,7 +42,10 @@ const Login = () => {
 				</div>
 				<hr />
 				<div className='row d-flex align-items-center justify-content-center h-100'>
-					<div className='col-md-8 col-lg-7 col-xl-6'>
+					<div
+						className='col-md-8 col-lg-7 col-xl-6'
+						data-aos='fade-down'
+						data-aos-duration='2000'>
 						<img
 							src='https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg'
 							className='img-fluid'
@@ -53,6 +61,7 @@ const Login = () => {
 									name='email'
 									placeholder='Enter Your Email'
 									className='form-control form-control-lg'
+									autoComplete='off'
 								/>
 							</div>
 							<div className='form-outline mb-4'>
@@ -60,6 +69,7 @@ const Login = () => {
 									onChange={handleOnChange}
 									type='password'
 									name='password'
+									autoComplete='off'
 									placeholder='Password'
 									className='form-control form-control-lg'
 								/>

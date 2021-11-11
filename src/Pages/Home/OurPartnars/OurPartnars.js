@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/components/pagination';
 import 'swiper/swiper-bundle.min.css';
@@ -11,8 +11,13 @@ import partnerimage5 from '../../../image/partners/ntw.png';
 import partnerimage6 from '../../../image/partners/redbox.png';
 import partnerimage7 from '../../../image/partners/untield.png';
 import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 SwiperCore.use([Pagination, Autoplay]);
 const OurPartnars = () => {
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
 		<div
 			style={{
@@ -26,7 +31,9 @@ const OurPartnars = () => {
 
 					padding: '20px',
 				}}
-				className='text-center'>
+				className='text-center'
+				data-aos='zoom-in-right'
+				data-aos-duration='2000'>
 				<h1 className=' fw-bold text-decoration-underline'>
 					Our <span className='text-warning'>Partner's</span>
 				</h1>

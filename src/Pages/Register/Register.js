@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAlert } from 'react-alert';
 import { Link, useHistory } from 'react-router-dom';
 import { useDocTitle } from '../../hooks/DocumentTitel/DocumentTitel';
 import UseAuth from '../../hooks/UseAuth/UseAuth';
 import logo from '../../image/logo (2).png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Register = () => {
 	useDocTitle('Register');
 
@@ -26,27 +28,40 @@ const Register = () => {
 			alert.error('Your password did not match');
 			return;
 		}
+
 		registerUser(loginData.email, loginData.password, loginData.name, history);
 		e.preventDefault();
+		if (loginData.email) {
+			return alert.success('Successfully Create  A Account');
+		}
 	};
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
 		<div className='vh-100'>
 			<div className='container py-5 h-100'>
-				<div className='text-center'>
+				<div className='text-center' data-aos='fade-down' data-aos-duration='2000'>
 					<Link to='/home'>
 						<img src={logo} className='img-fluid' width='220px' alt='' />
 					</Link>
 				</div>
 				<hr />
 				<div className='row d-flex align-items-center justify-content-center h-100'>
-					<div className='col-md-8 col-lg-7 col-xl-6'>
+					<div
+						className='col-md-8 col-lg-7 col-xl-6'
+						data-aos='fade-up'
+						data-aos-duration='2000'>
 						<img
 							src='https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg'
 							className='img-fluid'
 							alt='Phone image'
 						/>
 					</div>
-					<div className='col-md-7 col-lg-5 col-xl-5 offset-xl-1'>
+					<div
+						className='col-md-7 col-lg-5 col-xl-5 offset-xl-1'
+						data-aos='fade-down'
+						data-aos-duration='2000'>
 						<form onSubmit={handleLoginSubmit}>
 							<div className='form-outline mb-4'>
 								<input

@@ -5,7 +5,8 @@ import 'swiper/components/effect-coverflow';
 import 'swiper/components/navigation';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import SwiperCore, { Pagination, EffectCoverflow, Autoplay } from 'swiper/core';
 import Rating from 'react-rating';
 SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
@@ -19,12 +20,17 @@ const Ratings = () => {
 				setReviews(data);
 			});
 	}, []);
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
 		<div
 			style={{
 				marginTop: '60px',
 				marginBottom: '60px',
-			}}>
+			}}
+			data-aos='zoom-in-up'
+			data-aos-duration='2000'>
 			<div className='text-center'>
 				<h1 className='fw-bold mb-5 text-decoration-underline'>
 					Our <i className='far fa-smile text-warning'></i> Customer's
@@ -81,7 +87,10 @@ const Ratings = () => {
 						<div key={review?._id} review={review} className='mt-5'>
 							<SwiperSlide className='my-5'>
 								<div className='p-5 shadow-lg' style={{ height: '360px' }}>
-									<div className='d-flex'>
+									<div
+										className='d-flex'
+										data-aos='zoom-in-left'
+										data-aos-duration='2000'>
 										<img style={{ width: '70px' }} src={review.photurl} alt=''></img>
 										<div className='ms-3 mt-1'>
 											<h4 className='fw-bold'>{review.fullName}</h4>

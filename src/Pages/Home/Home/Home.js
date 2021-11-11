@@ -11,6 +11,7 @@ import { XlviLoader } from 'react-awesome-loaders';
 
 const Home = () => {
 	useDocTitle('Home');
+
 	const { isLoading } = UseAuth();
 	if (isLoading) {
 		return (

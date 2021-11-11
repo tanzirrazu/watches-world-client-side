@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const AddProducts = () => {
 	const { register, reset, handleSubmit } = useForm();
 
@@ -20,13 +22,20 @@ const AddProducts = () => {
 				}
 			});
 	};
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	useDocTitle('Add Products');
 	return (
-		<div className='py-3 bg-white'>
+		<div className='py-3 bg-white' data-aos='fade-up' data-aos-duration='2000'>
 			<h1 className='fw-bold text-center mt-3 text-decoration-underline'>
 				Add a <span className='text-danger text-decoration-underline'>Product</span>{' '}
 			</h1>
-			<form onSubmit={handleSubmit(onSubmit)} className='my-5 container'>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className='my-5 container'
+				data-aos='fade-down'
+				data-aos-duration='2000'>
 				<input
 					className='form-control mb-3'
 					{...register('modelName')}

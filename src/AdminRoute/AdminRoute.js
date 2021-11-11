@@ -4,8 +4,8 @@ import { Redirect, Route } from 'react-router';
 import UseAuth from '../hooks/UseAuth/UseAuth';
 import { XlviLoader } from 'react-awesome-loaders';
 
-const PrivetRoute = ({ children, ...rest }) => {
-	const { user, isLoading } = UseAuth();
+const AdminRoute = ({ children, ...rest }) => {
+	const { user, admin, isLoading } = UseAuth();
 	if (isLoading) {
 		return (
 			<div className='position-absolute bottom-50 end-50'>
@@ -21,12 +21,12 @@ const PrivetRoute = ({ children, ...rest }) => {
 		<Route
 			{...rest}
 			render={({ location }) =>
-				user.email ? (
+				user.email & admin ? (
 					children
 				) : (
 					<Redirect
 						to={{
-							pathname: '/login',
+							pathname: '/',
 							state: { from: location },
 						}}
 					/>
@@ -36,4 +36,4 @@ const PrivetRoute = ({ children, ...rest }) => {
 	);
 };
 
-export default PrivetRoute;
+export default AdminRoute;

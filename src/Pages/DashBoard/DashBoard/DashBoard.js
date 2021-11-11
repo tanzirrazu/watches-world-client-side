@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from '../../../image/logo (2).png';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import AddRating from '../AddRating/AddRating';
@@ -7,25 +7,34 @@ import MyOrders from '../MyOrders/MyOrders';
 import UseAuth from '../../../hooks/UseAuth/UseAuth';
 import AllOrders from '../AllOrders/AllOrders';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AdminRoute from '../../../AdminRoute/AdminRoute';
 
 const DashBorad = () => {
 	let { path, url } = useRouteMatch();
-	const { user, logOut } = UseAuth();
+	const { user, logOut, admin } = UseAuth();
 	useDocTitle('Dashboard');
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
-		<div className='py-3' style={{ backgroundColor: '#f1faee' }}>
-			<div className='row container-fluid row-cols-xs-12 row-cols-sm-12 text-sm-start text-md-center row-cols-md-3'>
-				<div className='col '>
+		<div className='py-3' style={{ backgroundColor: '#f1faee' }} id='header'>
+			<div
+				className='row container-fluid row-cols-xs-12 row-cols-sm-12 text-sm-start text-md-center row-cols-md-3'
+				id='content'>
+				<div className='col ' data-aos='fade-down' data-aos-duration='2000'>
 					<Link to='/home'>
 						<img src={logo} width='160px' alt='' />
 					</Link>
 				</div>
 
-				<div className='col mt-3'>
+				<div className='col mt-3' data-aos='fade-up' data-aos-duration='2000'>
 					<h2>DashBoard</h2>
 				</div>
 				{user.email ? (
-					<div className='col mt-2'>
+					<div className='col mt-2' data-aos='fade-left' data-aos-duration='2000'>
 						<div
 							className='dropdown-toggle'
 							data-bs-toggle='dropdown'
@@ -43,7 +52,7 @@ const DashBorad = () => {
 								/>
 							</div>
 						</div>
-						<ul className='dropdown-menu'>
+						<ul className='dropdown-menu dashboard'>
 							<li>
 								<a className='dropdown-item text-center' href='#'>
 									<img
@@ -80,41 +89,49 @@ const DashBorad = () => {
 			<div className='row container-fluid'>
 				<div
 					className='col-xs-12 col-sm-12 col-md-2 my-5'
-					style={{ width: '200px' }}>
-					<Link to={`${url}/myOrders`} className='nav-link text-dark'>
+					style={{ width: '200px' }}
+					data-aos='fade-up'
+					data-aos-duration='2000'>
+					<Link to={`${url}`} className='nav-link text-dark'>
 						<span className='ms-2'>&#128722; My Orders</span>{' '}
-					</Link>
-					<Link to={`${url}/allORders`} className='nav-link text-dark'>
-						<span className='ms-2'>&#128722; All Orders</span>{' '}
 					</Link>
 					<Link to={`${url}/addRating`} className='nav-link text-dark'>
 						<span className='ms-2'>&#43; Rating</span>{' '}
 					</Link>
-					<Link to={`${url}/addaddProducts`} className='nav-link text-dark'>
-						<span className='ms-2'>&#43; Products</span>{' '}
-					</Link>
-					<Link to={`${url}/makeAdmin`} className='nav-link text-dark'>
-						<span className='ms-2'>&#128101; Make Admin</span>{' '}
-					</Link>
-					<Link to={`${url}/bookingLIst`} className='nav-link text-dark'>
-						<span className='ms-2'>&#128221; Booking List</span>{' '}
-					</Link>
+					{admin && (
+						<div>
+							<Link to={`${url}/allORders`} className='nav-link text-dark'>
+								<span className='ms-2'>&#128722; All Orders</span>{' '}
+							</Link>
+							<Link to={`${url}/addProducts`} className='nav-link text-dark'>
+								<span className='ms-2'>&#43; Products</span>{' '}
+							</Link>
+							<Link to={`${url}/makeAdmin`} className='nav-link text-dark'>
+								<span className='ms-2'>&#128101; Make Admin</span>{' '}
+							</Link>
+							<Link to={`${url}/bookingLIst`} className='nav-link text-dark'>
+								<span className='ms-2'>&#128221; Manage Order</span>{' '}
+							</Link>
+						</div>
+					)}
 				</div>
 				<div className='col-xs-12 col-sm-12 col-md-10'>
 					<Switch>
-						<Route exact path={`${path}/book`}></Route>
 						<Route path={`${path}/addRating`}>
 							<AddRating />
 						</Route>
-						<Route path={`${path}/myOrders`}>
+						<Route exact path={path}>
 							<MyOrders />
 						</Route>
-						<Route path={`${path}/allORders`}>
+						<AdminRoute path={`${path}/allORders`}>
 							<AllOrders />
-						</Route>
-						<Route path={`${path}/addaddProducts`}>
+						</AdminRoute>
+						<AdminRoute path={`${path}/makeAdmin`}>
+							<MakeAdmin />
+						</AdminRoute>
+						<AdminRoute path={`${path}/addProducts`}>
 							<AddProducts />
-						</Route>
+						</AdminRoute>
 					</Switch>
 				</div>
 			</div>
