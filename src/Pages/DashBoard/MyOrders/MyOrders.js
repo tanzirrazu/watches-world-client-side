@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UseAuth from '../../../hooks/UseAuth/UseAuth';
 import { useAlert } from 'react-alert';
+import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 
 const MyOrders = () => {
 	const [myOrders, setMyorders] = useState([]);
@@ -11,7 +12,6 @@ const MyOrders = () => {
 		fetch(`http://localhost:5000/myOrders/${user.email}`)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setMyorders(data);
 			});
 	}, [control]);
@@ -25,9 +25,9 @@ const MyOrders = () => {
 					alert.success('Deleted Succesfully');
 					setControl(!control);
 				}
-				console.log(data);
 			});
 	};
+	useDocTitle('My Orders');
 	return (
 		<div
 			style={{

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { useAlert } from 'react-alert';
 import { Link, useHistory } from 'react-router-dom';
+import { useDocTitle } from '../../hooks/DocumentTitel/DocumentTitel';
 import UseAuth from '../../hooks/UseAuth/UseAuth';
 import logo from '../../image/logo (2).png';
 const Register = () => {
+	useDocTitle('Register');
+
 	const [loginData, setLoginData] = useState({});
 	const history = useHistory();
+	const alert = useAlert();
 	const { user, registerUser, isLoading, authError } = UseAuth();
 	// !  input handel
 	const handleOnBlur = (e) => {
@@ -18,7 +23,7 @@ const Register = () => {
 	// ! form handel
 	const handleLoginSubmit = (e) => {
 		if (loginData.password !== loginData.password2) {
-			alert('Your password did not match');
+			alert.error('Your password did not match');
 			return;
 		}
 		registerUser(loginData.email, loginData.password, loginData.name, history);
@@ -86,7 +91,7 @@ const Register = () => {
 									</div>
 								</div>
 							)}
-							{/* {user?.email && window.alert('	User Created successfully')} */}
+
 							{authError && (
 								<div className='alert alert-danger' role='alert'>
 									{authError}

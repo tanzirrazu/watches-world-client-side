@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
-import Banner from '../Home/Banner/Banner';
-import Ratings from '../Home/Rating/Ratings';
+import { useDocTitle } from '../../hooks/DocumentTitel/DocumentTitel';
+import UseAuth from '../../hooks/UseAuth/UseAuth';
+
 import Footer from '../Home/Shared/Footer/Footer';
 import Header from '../Home/Shared/Header/Header';
-
+import { XlviLoader } from 'react-awesome-loaders';
 const AllProducts = () => {
+	useDocTitle('Our Products');
 	const [allProducts, setAllProducts] = useState([]);
 	useEffect(() => {
 		fetch('http://localhost:5000/allproducts')
@@ -15,6 +17,19 @@ const AllProducts = () => {
 				setAllProducts(data);
 			});
 	}, []);
+	const { isLoading } = UseAuth();
+	if (isLoading) {
+		return (
+			<div className='position-absolute bottom-50 end-50'>
+				<XlviLoader
+					boxColors={['#EF4444', '#F59E0B', '#6366F1']}
+					desktopSize={'128px'}
+					mobileSize={'100px'}
+				/>
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<Header />

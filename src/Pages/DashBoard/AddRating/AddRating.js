@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 const AddRating = () => {
 	const { register, reset, handleSubmit } = useForm();
 
@@ -20,6 +21,7 @@ const AddRating = () => {
 			});
 		console.log(data);
 	};
+	useDocTitle('Add Rating');
 	return (
 		<div className='py-5 vh-100 bg-white'>
 			<h1 className='fw-bold text-center mt-3'>

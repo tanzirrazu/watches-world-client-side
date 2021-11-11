@@ -5,10 +5,13 @@ import AddRating from '../AddRating/AddRating';
 import AddProducts from '../AddProducts/AddProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import UseAuth from '../../../hooks/UseAuth/UseAuth';
+import AllOrders from '../AllOrders/AllOrders';
+import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 
 const DashBorad = () => {
 	let { path, url } = useRouteMatch();
 	const { user, logOut } = UseAuth();
+	useDocTitle('Dashboard');
 	return (
 		<div className='py-3' style={{ backgroundColor: '#f1faee' }}>
 			<div className='row container-fluid row-cols-xs-12 row-cols-sm-12 text-sm-start text-md-center row-cols-md-3'>
@@ -81,8 +84,8 @@ const DashBorad = () => {
 					<Link to={`${url}/myOrders`} className='nav-link text-dark'>
 						<span className='ms-2'>&#128722; My Orders</span>{' '}
 					</Link>
-					<Link to={`${url}/bookingList`} className='nav-link text-dark'>
-						<span className='ms-2'>&#128722; Bookings</span>{' '}
+					<Link to={`${url}/allORders`} className='nav-link text-dark'>
+						<span className='ms-2'>&#128722; All Orders</span>{' '}
 					</Link>
 					<Link to={`${url}/addRating`} className='nav-link text-dark'>
 						<span className='ms-2'>&#43; Rating</span>{' '}
@@ -105,6 +108,9 @@ const DashBorad = () => {
 						</Route>
 						<Route path={`${path}/myOrders`}>
 							<MyOrders />
+						</Route>
+						<Route path={`${path}/allORders`}>
+							<AllOrders />
 						</Route>
 						<Route path={`${path}/addaddProducts`}>
 							<AddProducts />

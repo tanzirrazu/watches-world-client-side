@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 const AddProducts = () => {
 	const { register, reset, handleSubmit } = useForm();
 
@@ -19,6 +20,7 @@ const AddProducts = () => {
 				}
 			});
 	};
+	useDocTitle('Add Products');
 	return (
 		<div className='py-3 bg-white'>
 			<h1 className='fw-bold text-center mt-3 text-decoration-underline'>

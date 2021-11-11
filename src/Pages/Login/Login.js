@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 import { Link, useLocation, useHistory } from 'react-router-dom';
+import { useDocTitle } from '../../hooks/DocumentTitel/DocumentTitel';
 import UseAuth from '../../hooks/UseAuth/UseAuth';
 import logo from '../../image/logo (2).png';
 
@@ -25,6 +26,7 @@ const Login = () => {
 	const handleGoogleSignIn = () => {
 		googleSignin(location, history);
 	};
+	useDocTitle('Login');
 	return (
 		<div className='vh-100'>
 			<div className='container py-5 h-100'>
