@@ -27,14 +27,9 @@ Watches World is a Smart and Analog Watch service supplier company established i
 
 ## Connect With Me
 
-![https://www.facebook.com/tanjilraju72/](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)
-![https://www.linkedin.com/in/tanzir-raju/](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
-![https://twitter.com/tanzir_razu](https://img.shields.io/badge/<handle>-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)
-![https://www.instagram.com/tanzir.razu/](https://img.shields.io/badge/<handle>-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)
+![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)(https://www.facebook.com/tanjilraju72/)
+![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)(https://www.linkedin.com/in/tanzir-raju/)
+![Twitter](https://img.shields.io/badge/<handle>-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)(https://twitter.com/tanzir_razu)
+![Instagram](https://img.shields.io/badge/<handle>-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)(https://www.instagram.com/tanzir.razu/)
 
 ## ScreenShots
-
-![This is an image](https://i.ibb.co/DMKysBD/screencapture-localhost-3000-home-2021-10-30-13-39-11.png)
-![This is an image](https://i.ibb.co/qyn3dk0/screencapture-localhost-3000-login-2021-10-30-13-41-29.png)
-![This is an image](https://i.ibb.co/w7DwYjJ/screencapture-localhost-3000-tours-2021-10-30-13-41-45.png)
-![This is an image](https://i.ibb.co/RhWn1S6/screencapture-localhost-3000-addtours-2021-10-30-13-41-01.png)
