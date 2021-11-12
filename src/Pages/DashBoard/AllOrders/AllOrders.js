@@ -59,49 +59,51 @@ const AllOrders = () => {
 				Manage
 				<span className='text-danger text-decoration-underline'>Orders</span>{' '}
 			</h1>
-			<Table striped bordered hover>
-				<thead data-aos='fade-left' data-aos-duration='2000'>
-					<tr>
-						<th>#</th>
-						<th>Email</th>
-						<th>Product Name</th>
-						<th>Image</th>
-						<th>Status</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				{orders?.map((order, index) => (
-					<tbody key={order._id} className='align-middle'>
-						<tr data-aos='fade-left' data-aos-duration='2000'>
-							<td>{index}</td>
-							<td>{order?.email}</td>
-							<td>{order.modelName}</td>
-							<td>
-								<img src={order.imageUrl} alt='img' width='50px'></img>{' '}
-							</td>
-							<td className='text-center'>
-								{' '}
-								<select onBlur={updateStatus} className='btn btn-success'>
-									<option value='Pending'> {order.status}</option>
-									<option value='Approved'>Approved</option>
-								</select>
-							</td>
-							<td className='text-center'>
-								<button
-									onClick={() => handelDelete(order._id)}
-									className='btn btn-danger mb-2'>
-									<i className='fas fa-trash-alt'></i>
-								</button>
-								<button
-									onClick={() => handelUpdate(order._id)}
-									className='btn btn-success ms-2 mb-2'>
-									<i className='fas fa-user-edit'></i>
-								</button>
-							</td>
+			<div className='table-responsive'>
+				<table className='table'>
+					<thead data-aos='fade-left' data-aos-duration='2000'>
+						<tr>
+							<th>#</th>
+							<th>Email</th>
+							<th>Product Name</th>
+							<th>Image</th>
+							<th>Status</th>
+							<th>Action</th>
 						</tr>
-					</tbody>
-				))}
-			</Table>
+					</thead>
+					{orders?.map((order, index) => (
+						<tbody key={order._id} className='align-middle'>
+							<tr data-aos='fade-left' data-aos-duration='2000'>
+								<td>{index}</td>
+								<td>{order?.email}</td>
+								<td>{order.modelName}</td>
+								<td>
+									<img src={order.imageUrl} alt='img' width='50px'></img>{' '}
+								</td>
+								<td className='text-center'>
+									{' '}
+									<select onBlur={updateStatus} className='btn btn-success'>
+										<option value='Pending'> {order.status}</option>
+										<option value='Approved'>Approved</option>
+									</select>
+								</td>
+								<td className='text-center'>
+									<button
+										onClick={() => handelDelete(order._id)}
+										className='btn btn-danger mb-2'>
+										<i className='fas fa-trash-alt'></i>
+									</button>
+									<button
+										onClick={() => handelUpdate(order._id)}
+										className='btn btn-success ms-2 mb-2'>
+										<i className='fas fa-user-edit'></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					))}
+				</table>
+			</div>
 		</div>
 	);
 };
