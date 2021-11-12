@@ -20,7 +20,7 @@ const Banner = () => {
 	return (
 		<div data-aos='fade-left' data-aos-duration='2000'>
 			<Swiper
-				// slidesPerView={3}
+				slidesPerView={3}
 				loop={true}
 				autoplay={{
 					delay: 2500,
@@ -47,27 +47,27 @@ const Banner = () => {
 				className='mySwiper'>
 				<SwiperSlide>
 					<div>
-						<img src={slide1} width='520px' alt='' />
+						<img src={slide1} width='510px' alt='' />
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
 					<div>
-						<img src={slide2} width='520px' alt='' />
+						<img src={slide2} width='510px' alt='' />
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
 					<div>
-						<img src={slide3} width='520px' alt='' />
+						<img src={slide3} width='510px' alt='' />
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
 					<div>
-						<img src={slide4} width='520px' alt='' />
+						<img src={slide4} width='510px' alt='' />
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
 					<div>
-						<img src={slide5} width='520px' alt='' />
+						<img src={slide5} width='510px' alt='' />
 					</div>
 				</SwiperSlide>
 			</Swiper>

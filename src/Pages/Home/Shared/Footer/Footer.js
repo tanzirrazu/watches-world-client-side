@@ -117,7 +117,9 @@ const Footer = () => {
 			</div>
 			<hr />
 			<div className='text-center text-dark'>
-				<p>Watches-World © Copyright: 2021 | Design By Tanzir Razu</p>
+				<p>
+					Watches-World © Copyright: 2021 <br /> Design By Tanzir Razu
+				</p>
 			</div>
 		</div>
 	);

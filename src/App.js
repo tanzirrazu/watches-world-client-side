@@ -12,9 +12,10 @@ import BuyNow from './Pages/BuyNow/BuyNow';
 
 import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
+import AboutUs from './Pages/ContactUs/AboutUs';
 
 const options = {
-	timeout: 3000,
+	timeout: 2000,
 	position: positions.TOP_CENTER,
 };
 
@@ -36,6 +37,9 @@ function App() {
 							</Route>
 							<Route path='/login'>
 								<Login />
+							</Route>
+							<Route path='/aboutus'>
+								<AboutUs />
 							</Route>
 							<Route path='/register'>
 								<Register />

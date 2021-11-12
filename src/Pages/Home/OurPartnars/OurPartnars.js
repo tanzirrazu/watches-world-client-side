@@ -50,6 +50,20 @@ const OurPartnars = () => {
 						pagination={{
 							clickable: true,
 						}}
+						breakpoints={{
+							'320': {
+								'slidesPerView': 1,
+							},
+							'640': {
+								'slidesPerView': 2,
+							},
+							'768': {
+								'slidesPerView': 3,
+							},
+							'1024': {
+								'slidesPerView': 4,
+							},
+						}}
 						className='mySwiper py-5'>
 						<SwiperSlide>
 							<img src={partnerimage1} alt='slide' />

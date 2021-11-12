@@ -54,13 +54,8 @@ const AllOrders = () => {
 	}, []);
 	useDocTitle('All Orders');
 	return (
-		<div
-			className='vh-100  bg-white'
-			style={{
-				marginTop: '60px',
-				marginBottom: '60px',
-			}}>
-			<h1 className='fw-bold text-center mt-3 text-decoration-underline py-3'>
+		<div className='vh-100  bg-white py-3'>
+			<h1 className='fw-bold text-center text-decoration-underline'>
 				Manage
 				<span className='text-danger text-decoration-underline'>Orders</span>{' '}
 			</h1>

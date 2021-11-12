@@ -10,7 +10,7 @@ import Header from '../Shared/Header/Header';
 import { XlviLoader } from 'react-awesome-loaders';
 
 const Home = () => {
-	useDocTitle('Home');
+	useDocTitle('Watches-World');
 
 	const { isLoading } = UseAuth();
 	if (isLoading) {

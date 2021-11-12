@@ -28,7 +28,7 @@ const AddProducts = () => {
 	useDocTitle('Add Products');
 	return (
 		<div className='py-3 bg-white' data-aos='fade-up' data-aos-duration='2000'>
-			<h1 className='fw-bold text-center mt-3 text-decoration-underline'>
+			<h1 className='fw-bold text-center text-decoration-underline'>
 				Add a <span className='text-danger text-decoration-underline'>Product</span>{' '}
 			</h1>
 			<form

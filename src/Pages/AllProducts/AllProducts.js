@@ -33,7 +33,6 @@ const AllProducts = () => {
 	return (
 		<div>
 			<Header />
-
 			<div
 				style={{
 					paddingTop: '60px',
@@ -41,12 +40,13 @@ const AllProducts = () => {
 					backgroundColor: '#edf6f9',
 				}}>
 				<div className='text-center'>
-					<h1 className='pb-5 fw-bold text-decoration-underline'>
+					<h1 className='fw-bold text-decoration-underline'>
 						Our <span className='text-warning'>Products</span>
 					</h1>
+					<h4>Home / Our Products</h4>
 				</div>
 				<div>
-					<div className='row container mx-auto  row-cols-1  row-cols-md-4 g-4'>
+					<div className='row container-fluid mx-auto  row-cols-1 row-cols-md-4 g-4 my-5'>
 						{allProducts.map((products) => (
 							<div key={products._id} className='col'>
 								<div className='card pt-3'>

@@ -86,7 +86,7 @@ const Ratings = () => {
 					{reviews.map((review) => (
 						<div key={review?._id} review={review} className='mt-5'>
 							<SwiperSlide className='my-5'>
-								<div className='p-5 shadow-lg' style={{ height: '360px' }}>
+								<div className='p-5 shadow-lg' style={{ height: '350px' }}>
 									<div
 										className='d-flex'
 										data-aos='zoom-in-left'

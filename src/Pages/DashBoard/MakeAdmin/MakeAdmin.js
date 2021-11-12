@@ -32,11 +32,11 @@ const MakeAdmin = () => {
 		AOS.init();
 	}, []);
 	return (
-		<div className='vh-100 bg-white text-center py-5'>
+		<div className='vh-100 bg-white text-center py-3'>
 			<form onSubmit={handelSubmit} data-aos='fade-up' data-aos-duration='2000'>
-				<h1 className='fw-bold text-center mt-3 text-decoration-underline py-3'>
+				<h1 className='fw-bold text-center text-decoration-underline'>
 					Make an
-					<span className='text-danger text-decoration-underline'>Admin</span>{' '}
+					<span className='text-danger text-decoration-underline'> Admin</span>{' '}
 				</h1>
 				<input
 					onBlur={handelonBlur}
