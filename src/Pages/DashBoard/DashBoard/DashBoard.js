@@ -44,6 +44,7 @@ const DashBorad = () => {
 							aria-expanded='false'>
 							<div>
 								<img
+									className='border border-danger'
 									src={user.photoURL}
 									style={{
 										width: '50px',
@@ -144,15 +145,16 @@ const DashBorad = () => {
 						<Route exact path={path}>
 							<MyOrders />
 						</Route>
+						<AdminRoute path={`${path}/addProducts`}>
+							<AddProducts />
+						</AdminRoute>
 						<AdminRoute path={`${path}/allORders`}>
 							<AllOrders />
 						</AdminRoute>
 						<AdminRoute path={`${path}/makeAdmin`}>
 							<MakeAdmin />
 						</AdminRoute>
-						<AdminRoute path={`${path}/addProducts`}>
-							<AddProducts />
-						</AdminRoute>
+
 						<AdminRoute path={`${path}/manageProducts`}>
 							<ManageProducts />
 						</AdminRoute>

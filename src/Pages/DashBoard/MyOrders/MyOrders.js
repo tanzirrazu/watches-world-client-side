@@ -8,7 +8,6 @@ const MyOrders = () => {
 	const [myOrders, setMyorders] = useState([]);
 	const [control, setControl] = useState(false);
 	const { user } = UseAuth();
-	const alert = useAlert();
 	useEffect(() => {
 		fetch(`http://localhost:5000/myOrders/${user.email}`)
 			.then((res) => res.json())
@@ -23,7 +22,7 @@ const MyOrders = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.deletedCount) {
-					alert.success('Deleted Succesfully');
+					alert('Deleted Succesfully');
 					setControl(!control);
 				}
 			});
@@ -55,12 +54,13 @@ const MyOrders = () => {
 
 								<span className='text-success'>${orders.price}</span>
 								<br />
+								<span className='broder border-success'>{orders.status}</span>
+								<br />
 								<button
 									onClick={() => handelDelete(orders._id)}
-									className='btn btn-danger btn-sm'>
+									className='btn btn-danger btn-sm mt-1'>
 									Cancel
 								</button>
-								<div></div>
 							</div>
 						</div>
 					</div>

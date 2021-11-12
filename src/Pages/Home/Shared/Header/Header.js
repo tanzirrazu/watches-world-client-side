@@ -71,6 +71,7 @@ const Header = () => {
 									aria-expanded='false'>
 									<div>
 										<img
+											className='border border-danger'
 											src={user.photoURL}
 											style={{
 												width: '50px',

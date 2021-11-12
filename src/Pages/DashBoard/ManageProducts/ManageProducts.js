@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 const ManageProducts = () => {
+	useDocTitle('Manage Product');
 	const [allProducts, setAllProducts] = useState([]);
 	const [control, setControl] = useState(false);
 	useEffect(() => {
@@ -22,8 +25,11 @@ const ManageProducts = () => {
 				}
 			});
 	};
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
-		<div className='vh-100 bg-white'>
+		<div className='vh-100 bg-white' data-aos='fade-up' data-aos-duration='2000'>
 			<div>
 				<h1 className='fw-bold text-center mt-3 text-decoration-underline py-3'>
 					Manage

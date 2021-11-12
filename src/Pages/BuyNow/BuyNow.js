@@ -27,6 +27,7 @@ const BuyNow = () => {
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => {
+		data.status = 'Pending';
 		fetch('http://localhost:5000/orders', {
 			method: 'POST',
 			headers: {
@@ -38,7 +39,6 @@ const BuyNow = () => {
 			.then((result) => {
 				if (result.insertedId) {
 					alert.success('Orderd added succesfully');
-
 					history.push('/home');
 				}
 			});
