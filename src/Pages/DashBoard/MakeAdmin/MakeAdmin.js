@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAlert } from 'react-alert';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 const MakeAdmin = () => {
+	useDocTitle('Make Admin');
 	const [email, setEmail] = useState('');
 	const alert = useAlert();
 	const handelonBlur = (e) => {
@@ -26,10 +29,16 @@ const MakeAdmin = () => {
 			});
 		e.preventDefault();
 	};
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
 		<div className='vh-100 bg-white text-center py-5'>
-			<form onSubmit={handelSubmit}>
-				<h2>Make an Admin</h2>
+			<form onSubmit={handelSubmit} data-aos='fade-up' data-aos-duration='2000'>
+				<h1 className='fw-bold text-center mt-3 text-decoration-underline py-3'>
+					Make an
+					<span className='text-danger text-decoration-underline'>Admin</span>{' '}
+				</h1>
 				<input
 					onBlur={handelonBlur}
 					type='email'

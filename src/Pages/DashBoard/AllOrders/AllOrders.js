@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAlert } from 'react-alert';
+
 import { Table } from 'react-bootstrap';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 import AOS from 'aos';
@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 const AllOrders = () => {
 	const [control, setControl] = useState(false);
 	const [orders, setOrders] = useState([]);
-	const alert = useAlert();
+
 	useEffect(() => {
 		fetch(`http://localhost:5000/allOrders`)
 			.then((res) => res.json())
@@ -23,7 +23,7 @@ const AllOrders = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.deletedCount) {
-					alert.success('Deleted Succesfully');
+					alert('Deleted Succesfully');
 					setControl(!control);
 				}
 			});
@@ -39,6 +39,10 @@ const AllOrders = () => {
 				marginTop: '60px',
 				marginBottom: '60px',
 			}}>
+			<h1 className='fw-bold text-center mt-3 text-decoration-underline py-3'>
+				Manage
+				<span className='text-danger text-decoration-underline'>Orders</span>{' '}
+			</h1>
 			<Table striped bordered hover>
 				<thead data-aos='fade-left' data-aos-duration='2000'>
 					<tr>

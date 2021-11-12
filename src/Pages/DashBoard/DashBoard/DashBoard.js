@@ -11,6 +11,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AdminRoute from '../../../AdminRoute/AdminRoute';
+import Payment from '../Payment/Payment';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const DashBorad = () => {
 	let { path, url } = useRouteMatch();
@@ -89,28 +91,44 @@ const DashBorad = () => {
 			<div className='row container-fluid'>
 				<div
 					className='col-xs-12 col-sm-12 col-md-2 my-5'
-					style={{ width: '200px' }}
+					style={{ width: '220px' }}
 					data-aos='fade-up'
 					data-aos-duration='2000'>
-					<Link to={`${url}`} className='nav-link text-dark'>
-						<span className='ms-2'>&#128722; My Orders</span>{' '}
-					</Link>
-					<Link to={`${url}/addRating`} className='nav-link text-dark'>
-						<span className='ms-2'>&#43; Rating</span>{' '}
-					</Link>
+					{!admin && (
+						<div>
+							<Link to={`${url}`} className='nav-link text-dark'>
+								<span className='ms-2'>&#128722; My Orders</span>{' '}
+							</Link>
+							<Link to={`${url}/payment`} className='nav-link text-dark'>
+								<span className='ms-2'>
+									<i className='fab fa-paypal text-primary'></i> Pay
+								</span>{' '}
+							</Link>
+							<Link to={`${url}/addRating`} className='nav-link text-dark'>
+								<span className='ms-2'>&#43; Rating</span>{' '}
+							</Link>
+						</div>
+					)}
+
 					{admin && (
 						<div>
-							<Link to={`${url}/allORders`} className='nav-link text-dark'>
-								<span className='ms-2'>&#128722; All Orders</span>{' '}
-							</Link>
 							<Link to={`${url}/addProducts`} className='nav-link text-dark'>
-								<span className='ms-2'>&#43; Products</span>{' '}
+								<span className='ms-2'>
+									<i className='fas fa-user-plus'></i> Products
+								</span>{' '}
 							</Link>
+							<Link to={`${url}/allORders`} className='nav-link text-dark'>
+								<span className='ms-2'>&#128722; Manage Orders</span>{' '}
+							</Link>
+
 							<Link to={`${url}/makeAdmin`} className='nav-link text-dark'>
 								<span className='ms-2'>&#128101; Make Admin</span>{' '}
 							</Link>
-							<Link to={`${url}/bookingLIst`} className='nav-link text-dark'>
-								<span className='ms-2'>&#128221; Manage Order</span>{' '}
+							<Link to={`${url}/manageProducts`} className='nav-link text-dark'>
+								<span className='ms-2'>
+									{' '}
+									<i className='fas fa-tasks'></i> Manage Products
+								</span>{' '}
 							</Link>
 						</div>
 					)}
@@ -119,6 +137,9 @@ const DashBorad = () => {
 					<Switch>
 						<Route path={`${path}/addRating`}>
 							<AddRating />
+						</Route>
+						<Route path={`${path}/payment`}>
+							<Payment />
 						</Route>
 						<Route exact path={path}>
 							<MyOrders />
@@ -131,6 +152,9 @@ const DashBorad = () => {
 						</AdminRoute>
 						<AdminRoute path={`${path}/addProducts`}>
 							<AddProducts />
+						</AdminRoute>
+						<AdminRoute path={`${path}/manageProducts`}>
+							<ManageProducts />
 						</AdminRoute>
 					</Switch>
 				</div>
