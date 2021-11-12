@@ -7,14 +7,14 @@ const ManageProducts = () => {
 	const [allProducts, setAllProducts] = useState([]);
 	const [control, setControl] = useState(false);
 	useEffect(() => {
-		fetch('http://localhost:5000/allproducts')
+		fetch('https://damp-taiga-39010.herokuapp.com/allproducts')
 			.then((res) => res.json())
 			.then((data) => {
 				setAllProducts(data);
 			});
 	}, [control]);
 	const handelDelete = (id) => {
-		fetch(`http://localhost:5000/allproducts/${id}`, {
+		fetch(`https://damp-taiga-39010.herokuapp.com/allproducts/${id}`, {
 			method: 'DELETE',
 		})
 			.then((res) => res.json())

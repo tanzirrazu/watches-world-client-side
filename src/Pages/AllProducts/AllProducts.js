@@ -11,7 +11,7 @@ const AllProducts = () => {
 	useDocTitle('Our Products');
 	const [allProducts, setAllProducts] = useState([]);
 	useEffect(() => {
-		fetch('http://localhost:5000/allproducts')
+		fetch('https://damp-taiga-39010.herokuapp.com/allproducts')
 			.then((res) => res.json())
 			.then((data) => {
 				setAllProducts(data);

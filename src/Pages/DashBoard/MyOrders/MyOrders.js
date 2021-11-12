@@ -9,14 +9,14 @@ const MyOrders = () => {
 	const [control, setControl] = useState(false);
 	const { user } = UseAuth();
 	useEffect(() => {
-		fetch(`http://localhost:5000/myOrders/${user.email}`)
+		fetch(`https://damp-taiga-39010.herokuapp.com/myOrders/${user.email}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setMyorders(data);
 			});
 	}, [control]);
 	const handelDelete = (id) => {
-		fetch(`http://localhost:5000/deleteOrder/${id}`, {
+		fetch(`https://damp-taiga-39010.herokuapp.com/deleteOrder/${id}`, {
 			method: 'DELETE',
 		})
 			.then((res) => res.json())

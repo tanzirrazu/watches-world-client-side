@@ -8,7 +8,7 @@ const Product = (props) => {
 	useEffect(() => {
 		AOS.init();
 	}, []);
-	const { modelName, price, imageUrl, rate, standby, warranty, color, _id } =
+	const { modelName, price, imageUrl, rate, standby, color, _id } =
 		props.product;
 
 	return (

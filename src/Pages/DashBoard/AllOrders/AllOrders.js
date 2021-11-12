@@ -12,7 +12,7 @@ const AllOrders = () => {
 	const [status, setStatus] = useState('');
 	const alert = useAlert();
 	useEffect(() => {
-		fetch(`http://localhost:5000/allOrders`)
+		fetch(`https://damp-taiga-39010.herokuapp.com/allOrders`)
 			.then((res) => res.json())
 			.then((data) => {
 				setOrders(data);
@@ -20,7 +20,7 @@ const AllOrders = () => {
 	}, [control]);
 
 	const handelDelete = (id) => {
-		fetch(`http://localhost:5000/allOrders/${id}`, {
+		fetch(`https://damp-taiga-39010.herokuapp.com/allOrders/${id}`, {
 			method: 'DELETE',
 		})
 			.then((res) => res.json())
@@ -35,7 +35,7 @@ const AllOrders = () => {
 		setStatus(e.target.value);
 	};
 	const handelUpdate = (id) => {
-		fetch(`http://localhost:5000/updateStatus/${id}`, {
+		fetch(`https://damp-taiga-39010.herokuapp.com/updateStatus/${id}`, {
 			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',

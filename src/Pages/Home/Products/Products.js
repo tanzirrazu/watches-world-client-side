@@ -8,7 +8,7 @@ const Products = () => {
 	}, []);
 	const [products, setProducts] = useState([]);
 	useEffect(() => {
-		fetch('http://localhost:5000/addproducts')
+		fetch('https://damp-taiga-39010.herokuapp.com/addproducts')
 			.then((res) => res.json())
 			.then((data) => {
 				setProducts(data);
@@ -27,7 +27,7 @@ const Products = () => {
 					Popular in <span className='text-warning'>Store</span>
 				</h1>
 			</div>
-			<div className='row container mx-auto  row-cols-1  row-cols-md-4 g-4'>
+			<div className='row container-fluid mx-auto  row-cols-1  row-cols-md-4 g-4'>
 				{products.map((product) => (
 					<Product key={product._id} product={product}></Product>
 				))}

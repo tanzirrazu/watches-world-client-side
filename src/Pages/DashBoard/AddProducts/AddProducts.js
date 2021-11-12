@@ -7,7 +7,7 @@ const AddProducts = () => {
 	const { register, reset, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
-		fetch('http://localhost:5000/addproducts', {
+		fetch('https://damp-taiga-39010.herokuapp.com/addproducts', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

@@ -18,10 +18,7 @@ const Header = () => {
 			data-aos='fade-right'
 			data-aos-duration='2000'
 			id='header'>
-			<nav
-				className='navbar navbar-expand-lg navbar-light'
-				style={{ zIndex: 1020, position: 'relative' }}
-				id='content'>
+			<nav className='navbar navbar-expand-lg navbar-light' id='content'>
 				<div className='container'>
 					<Link to='/home' className='navbar-brand' href='#'>
 						<img src={logo} width='160px' alt='' />

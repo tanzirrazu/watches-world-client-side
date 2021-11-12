@@ -13,7 +13,7 @@ SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
 const Ratings = () => {
 	const [reviews, setReviews] = useState([]);
 	useEffect(() => {
-		fetch('http://localhost:5000/addrating')
+		fetch('https://damp-taiga-39010.herokuapp.com/addrating')
 			.then((res) => res.json())
 			.then((data) => {
 				// console.log(data);

@@ -14,7 +14,7 @@ const BuyNow = () => {
 	const { user } = UseAuth();
 	const { id } = useParams();
 	useEffect(() => {
-		fetch(`http://localhost:5000/allproducts/${id}`)
+		fetch(`https://damp-taiga-39010.herokuapp.com/allproducts/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDetails(data);
@@ -28,7 +28,7 @@ const BuyNow = () => {
 	} = useForm();
 	const onSubmit = (data) => {
 		data.status = 'Pending';
-		fetch('http://localhost:5000/orders', {
+		fetch('https://damp-taiga-39010.herokuapp.com/orders', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

@@ -7,7 +7,7 @@ const AddRating = () => {
 	const { register, reset, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
-		fetch('http://localhost:5000/addrating', {
+		fetch('https://damp-taiga-39010.herokuapp.com/addrating', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

@@ -12,7 +12,7 @@ const MakeAdmin = () => {
 	};
 	const handelSubmit = (e) => {
 		const user = { email };
-		fetch('http://localhost:5000/users/admin', {
+		fetch('https://damp-taiga-39010.herokuapp.com/users/admin', {
 			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',
@@ -25,7 +25,6 @@ const MakeAdmin = () => {
 					setEmail('');
 					alert.success('Admin Added Succesfully');
 				}
-				console.log(data);
 			});
 		e.preventDefault();
 	};
