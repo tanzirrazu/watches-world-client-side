@@ -6,14 +6,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const AllOrders = () => {
-	useDocTitle('All Orders');
 	const [control, setControl] = useState(false);
 	const [orders, setOrders] = useState([]);
 	const [status, setStatus] = useState('');
-
-	useEffect(() => {
-		AOS.init();
-	}, []);
 
 	useEffect(() => {
 		fetch(`https://damp-taiga-39010.herokuapp.com/allOrders`)
@@ -49,11 +44,15 @@ const AllOrders = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount) {
-					alert.success('Data Updated Succesfully');
+					alert('Data Updated Succesfully');
 				}
 			});
 	};
 
+	useEffect(() => {
+		AOS.init();
+	}, []);
+	useDocTitle('All Orders');
 	return (
 		<div
 			className='vh-100  bg-white'
@@ -88,7 +87,7 @@ const AllOrders = () => {
 							<td className='text-center'>
 								{' '}
 								<select onBlur={updateStatus} className='btn btn-success'>
-									<option value='Pending'> Pending</option>
+									<option value='Pending'> {order.status}</option>
 									<option value='Approved'>Approved</option>
 								</select>
 							</td>

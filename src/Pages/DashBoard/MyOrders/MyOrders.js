@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import UseAuth from '../../../hooks/UseAuth/UseAuth';
-import { useAlert } from 'react-alert';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
