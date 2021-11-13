@@ -84,7 +84,7 @@ const AllOrders = () => {
 									{' '}
 									<select onBlur={updateStatus} className='btn btn-success'>
 										<option value='Pending'> {order.status}</option>
-										<option value='Approved'>Approved</option>
+										<option value='Approved'>Shipped</option>
 									</select>
 								</td>
 								<td className='text-center'>

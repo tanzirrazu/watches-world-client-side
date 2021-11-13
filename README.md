@@ -1,10 +1,25 @@
 # Welcome to Watches World
 
-live link: [world-travel-2f872.web.app/](https://world-travel-2f872.web.app/).
+live link: [watch-world-9d86f.firebaseapp.com/](https://watch-world-9d86f.firebaseapp.com/).
 
 ## Overview
 
-Watches World is a Smart and Analog Watch service supplier company established in August, 2016. We have grown consistently since inception and today we offer a wide range of computing services, products and Solutions. We trade as Watches World. We understand the Importance of Watch. Watcg are vital for both business and personal needs. Our systems, service, and consulting capabilities are key to providing high performance and reliability; thus insuring maximum productivity, profitability, and peace of mind.
+Watches World is a Smart and Analog Watch service supplier company established in August, 2016. We have grown consistently since inception and today we offer a wide range of computing services, products and Solutions. We trade as Watches World. We understand the Importance of Watch. Watches are vital for both business and personal needs. Our systems, service, and consulting capabilities are key to providing high performance and reliability; thus insuring maximum productivity, profitability, and peace of mind.
+
+## Our Features and Functionality
+
+#### User Functionality and Fetaures
+
+- If you are not logged in you can't order product and see details.
+- You can orders our product to and see your products in dashboard.
+- In dashboard you can see and delete your products and product status.
+- After recive product you can reveiw our product and it show directly in our home page.
+
+#### Admin Functionality and Fetaures
+
+- Only admin can admin anyone
+- Only admin can add products and manage them
+- Only admin can see all users orders and manage them
 
 ## Our Brands
 
@@ -33,3 +48,10 @@ Watches World is a Smart and Analog Watch service supplier company established i
 [![Twitter](https://img.shields.io/badge/<handle>-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/tanzir_razu)
 
 ## ScreenShots
+
+![This is an image](https://i.ibb.co/vDwmrHR/home.png)
+![This is an image](https://i.ibb.co/qRHKKWn/about.png)
+![This is an image](https://i.ibb.co/wgJ6wWx/all.png)
+![This is an image](https://i.ibb.co/Lrv4Nry/regiser.png)
+![This is an image](https://i.ibb.co/YRSjz0F/user.png)
+![This is an image](https://i.ibb.co/KWmTwww/admin.png)

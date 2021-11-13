@@ -32,7 +32,7 @@ const DashBorad = () => {
 					</Link>
 				</div>
 
-				<div className='col mt-3' data-aos='fade-up' data-aos-duration='2000'>
+				<div className='col mt-4' data-aos='fade-up' data-aos-duration='2000'>
 					<h2>DashBoard</h2>
 				</div>
 				{user.email ? (
@@ -42,7 +42,7 @@ const DashBorad = () => {
 							data-bs-toggle='dropdown'
 							style={{ cursor: 'pointer' }}
 							aria-expanded='false'>
-							<div>
+							<div className='mt-2'>
 								<img
 									className='border border-danger'
 									src={user.photoURL}
