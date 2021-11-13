@@ -47,7 +47,7 @@ function App() {
 							<PrivetRoute path='/dashboard'>
 								<DashBorad />
 							</PrivetRoute>
-							<PrivetRoute path='/buynow/:id'>
+							<PrivetRoute exact path='/buynow/:id'>
 								<BuyNow />
 							</PrivetRoute>
 							<Route path='*'>

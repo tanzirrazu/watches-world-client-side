@@ -136,7 +136,7 @@ const DashBorad = () => {
 				</div>
 				<div className='col-xs-12 col-sm-12 col-md-10'>
 					<Switch>
-						<Route path={`${path}/addRating`}>
+						<Route exact path={`${path}/addRating`}>
 							<AddRating />
 						</Route>
 						<Route path={`${path}/payment`}>
@@ -145,17 +145,17 @@ const DashBorad = () => {
 						<Route exact path={path}>
 							<MyOrders />
 						</Route>
-						<AdminRoute path={`${path}/addProducts`}>
+						<AdminRoute exact path={`${path}/addProducts`}>
 							<AddProducts />
 						</AdminRoute>
-						<AdminRoute path={`${path}/allORders`}>
+						<AdminRoute exact path={`${path}/allORders`}>
 							<AllOrders />
 						</AdminRoute>
-						<AdminRoute path={`${path}/makeAdmin`}>
+						<AdminRoute exact path={`${path}/makeAdmin`}>
 							<MakeAdmin />
 						</AdminRoute>
 
-						<AdminRoute path={`${path}/manageProducts`}>
+						<AdminRoute exact path={`${path}/manageProducts`}>
 							<ManageProducts />
 						</AdminRoute>
 					</Switch>
