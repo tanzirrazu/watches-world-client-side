@@ -7,9 +7,13 @@ import UseAuth from '../../hooks/UseAuth/UseAuth';
 import Footer from '../Home/Shared/Footer/Footer';
 import Header from '../Home/Shared/Header/Header';
 import { XlviLoader } from 'react-awesome-loaders';
+import { AiFillStar } from 'react-icons/ai';
+import { AiOutlineStar } from 'react-icons/ai';
 const AllProducts = () => {
 	useDocTitle('Our Products');
 	const [allProducts, setAllProducts] = useState([]);
+	const star = <AiFillStar />;
+	const out = <AiOutlineStar />;
 	useEffect(() => {
 		fetch('https://damp-taiga-39010.herokuapp.com/allproducts')
 			.then((res) => res.json())
@@ -61,8 +65,8 @@ const AllProducts = () => {
 										<h6 className='fw-bold'>{products.modelName}</h6>
 										<span className='card-subtitle mb-2 text-warning'>
 											<Rating
-												fullSymbol='fas fa-star'
-												emptySymbol='far fa-star'
+												fullSymbol={star}
+												emptySymbol={out}
 												readonly
 												initialRating={products.rate}></Rating>
 										</span>

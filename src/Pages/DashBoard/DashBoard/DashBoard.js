@@ -13,9 +13,16 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AdminRoute from '../../../AdminRoute/AdminRoute';
 import Payment from '../Payment/Payment';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import { BsBagPlusFill } from 'react-icons/bs';
+import { BsPaypal } from 'react-icons/bs';
+import { GrUserSettings } from 'react-icons/gr';
 
 const DashBorad = () => {
 	let { path, url } = useRouteMatch();
+	const plus = <BsBagPlusFill />;
+	const Pay = <BsPaypal />;
+	const manage = <GrUserSettings />;
+
 	const { user, logOut, admin } = UseAuth();
 	useDocTitle('Dashboard');
 	useEffect(() => {
@@ -101,9 +108,7 @@ const DashBorad = () => {
 								<span className='ms-2'>&#128722; My Orders</span>{' '}
 							</Link>
 							<Link to={`${url}/payment`} className='nav-link text-dark'>
-								<span className='ms-2'>
-									<i className='fab fa-paypal text-primary'></i> Pay
-								</span>{' '}
+								<span className='ms-2'>{Pay} Pay</span>{' '}
 							</Link>
 							<Link to={`${url}/addRating`} className='nav-link text-dark'>
 								<span className='ms-2'>&#43; Rating</span>{' '}
@@ -114,9 +119,7 @@ const DashBorad = () => {
 					{admin && (
 						<div>
 							<Link to={`${url}/addProducts`} className='nav-link text-dark'>
-								<span className='ms-2'>
-									<i className='fas fa-user-plus'></i> Products
-								</span>{' '}
+								<span className='ms-2'>{plus} Products</span>{' '}
 							</Link>
 							<Link to={`${url}/allORders`} className='nav-link text-dark'>
 								<span className='ms-2'>&#128722; Manage Orders</span>{' '}
@@ -126,10 +129,7 @@ const DashBorad = () => {
 								<span className='ms-2'>&#128101; Make Admin</span>{' '}
 							</Link>
 							<Link to={`${url}/manageProducts`} className='nav-link text-dark'>
-								<span className='ms-2'>
-									{' '}
-									<i className='fas fa-tasks'></i> Manage Products
-								</span>{' '}
+								<span className='ms-2'> {manage} Manage Products</span>{' '}
 							</Link>
 						</div>
 					)}
@@ -145,17 +145,17 @@ const DashBorad = () => {
 						<Route exact path={path}>
 							<MyOrders />
 						</Route>
-						<AdminRoute exact path={`${path}/addProducts`}>
+						<AdminRoute path={`${path}/addProducts`}>
 							<AddProducts />
 						</AdminRoute>
-						<AdminRoute exact path={`${path}/allORders`}>
+						<AdminRoute path={`${path}/allORders`}>
 							<AllOrders />
 						</AdminRoute>
-						<AdminRoute exact path={`${path}/makeAdmin`}>
+						<AdminRoute path={`${path}/makeAdmin`}>
 							<MakeAdmin />
 						</AdminRoute>
 
-						<AdminRoute exact path={`${path}/manageProducts`}>
+						<AdminRoute path={`${path}/manageProducts`}>
 							<ManageProducts />
 						</AdminRoute>
 					</Switch>

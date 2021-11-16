@@ -5,7 +5,9 @@ import logo from '../../../../image/logo (2).png';
 import './Header.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { BsGrid3X3GapFill } from 'react-icons/bs';
 const Header = () => {
+	const grid = <BsGrid3X3GapFill />;
 	const { user, logOut } = UseAuth();
 	useEffect(() => {
 		AOS.init();
@@ -57,9 +59,7 @@ const Header = () => {
 							<div className='btn-group'>
 								<Link to='/dashboard'>
 									{' '}
-									<button className='btn btn-danger mt-1 me-3'>
-										<i className='fas fa-th-large'></i>
-									</button>
+									<button className='btn btn-danger mt-1 me-3'>{grid}</button>
 								</Link>
 								<div
 									className='dropdown-toggle'

@@ -3,8 +3,12 @@ import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { AiFillStar } from 'react-icons/ai';
+import { AiOutlineStar } from 'react-icons/ai';
 
 const Product = (props) => {
+	const star = <AiFillStar />;
+	const out = <AiOutlineStar />;
 	useEffect(() => {
 		AOS.init();
 	}, []);
@@ -25,8 +29,8 @@ const Product = (props) => {
 					<h6 className='fw-bold'>{modelName}</h6>
 					<span className='card-subtitle mb-2 text-warning'>
 						<Rating
-							fullSymbol='fas fa-star'
-							emptySymbol='far fa-star'
+							fullSymbol={star}
+							emptySymbol={out}
 							readonly
 							initialRating={rate}></Rating>
 					</span>

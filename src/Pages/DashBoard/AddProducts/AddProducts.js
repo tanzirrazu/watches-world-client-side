@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 import AOS from 'aos';
@@ -7,18 +7,20 @@ const AddProducts = () => {
 	const { register, reset, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
-		fetch('https://damp-taiga-39010.herokuapp.com/addproducts', {
+		console.log(data);
+		const formData = new FormData();
+		formData.append('data', data);
+
+		fetch('http://localhost:5000/addproducts', {
 			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify(data),
+
+			body: formData,
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.insertedId) {
 					alert('Product added succesfully');
-					reset();
+					// reset();
 				}
 			});
 	};
@@ -38,59 +40,70 @@ const AddProducts = () => {
 				data-aos-duration='2000'>
 				<input
 					className='form-control mb-3'
-					{...register('modelName')}
+					ref={register('modelName')}
+					required
 					placeholder='Model Name'
 				/>
 				<input
+					required
 					className='form-control mb-3'
-					{...register('displaySize')}
+					ref={register('displaySize')}
 					placeholder='Display Size'
 				/>
 				<input
+					required
 					className='form-control mb-3'
-					{...register('warranty')}
+					ref={register('warranty')}
 					placeholder='Warranty'
 				/>
 
 				<input
 					className='form-control mb-3'
+					required
 					type='number'
-					{...register('price')}
+					ref={register('price')}
 					placeholder='Price'
 				/>
 				<input
+					required
 					className='form-control mb-3'
 					type='text'
-					{...register('chargingTime')}
+					ref={register('chargingTime')}
 					placeholder='Charging Time'
 				/>
 				<input
+					required
 					className='form-control mb-3'
 					type='text'
-					{...register('standby')}
+					ref={register('standby')}
 					placeholder='Stand By'
 				/>
 				<input
+					required
 					className='form-control mb-3'
 					type='text'
-					{...register('color')}
+					ref={register('color')}
 					placeholder='Color'
 				/>
 				<input
+					required
 					className='form-control mb-3'
-					type='text'
-					{...register('imageUrl')}
+					type='file'
+					accept='img/*'
+					ref={register('ImageUrl')}
 					placeholder='Image Url'
 				/>
 				<input
+					required
 					className='form-control mb-3'
 					type='number'
-					{...register('rate')}
+					ref={register('rate')}
 					placeholder='Rate'
 				/>
 				<textarea
+					required
 					className='form-control mb-3'
-					{...register('description')}
+					ref={register('description')}
 					placeholder='Description'
 				/>
 				<div className='text-center'>
