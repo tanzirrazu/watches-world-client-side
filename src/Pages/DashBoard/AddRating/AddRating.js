@@ -12,7 +12,6 @@ const AddRating = () => {
 
 	const handelOnSubmit = (e) => {
 		e.preventDefault();
-		console.log(photurl);
 		const formData = new FormData();
 		formData.append('fullName', fullName);
 		formData.append('designation', designation);
@@ -27,8 +26,12 @@ const AddRating = () => {
 			.then((data) => {
 				if (data.insertedId) {
 					alert('Rating added succesfully');
+					setFullname('');
+					setRate('');
+					setDesignation('');
+					setPhotourl('');
+					setDescription('');
 				}
-				console.log(data);
 			});
 	};
 	useEffect(() => {

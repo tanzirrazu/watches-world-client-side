@@ -4,12 +4,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
 import { Elements } from '@stripe/react-stripe-js';
 const Payment = () => {
+	const { ordersId } = useParams();
+	const [paymentInfo, setPaymentInfo] = useState({});
 	const stripePromise = loadStripe(
 		'pk_test_51Jvm4SKYJ3Pc5KN6CA5xCrSyWgQglvOMgRZl0SHkep8fNbwIuBbCdUFeHVqoDQfRNPI1Fc0IlcVRuZMUeN4ul48A00Jv2EmQuZ'
 	);
-
-	const { ordersId } = useParams();
-	const [paymentInfo, setPaymentInfo] = useState({});
 	useEffect(() => {
 		fetch(`https://damp-taiga-39010.herokuapp.com/payment/${ordersId}`)
 			.then((res) => res.json())

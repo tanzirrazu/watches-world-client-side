@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import initialization from '../../Pages/Login/Firebase/Firebase.init';
 import {
 	getAuth,
