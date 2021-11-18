@@ -13,7 +13,7 @@ const CheckoutForm = ({ paymentInfo }) => {
 	const [clientSecret, setClientSecret] = useState('');
 
 	useEffect(() => {
-		fetch('http://localhost:5000/create-payment-intent', {
+		fetch('https://damp-taiga-39010.herokuapp.com/create-payment-intent', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -76,7 +76,7 @@ const CheckoutForm = ({ paymentInfo }) => {
 				last4: paymentMethod.last4,
 				transaction: paymentIntent.client_secret.slice('_secret')[0],
 			};
-			const url = `http://localhost:5000/allOrders/${_id}`;
+			const url = `https://damp-taiga-39010.herokuapp.com/allOrders/${_id}`;
 			fetch(url, {
 				method: 'PUT',
 				headers: {

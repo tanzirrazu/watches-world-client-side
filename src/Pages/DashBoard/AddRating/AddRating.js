@@ -19,11 +19,8 @@ const AddRating = () => {
 		formData.append('rate', rate);
 		formData.append('photurl', photurl);
 		formData.append('description', description);
-		fetch('http://localhost:5000/addrating', {
+		fetch('https://damp-taiga-39010.herokuapp.com/addrating', {
 			method: 'POST',
-			// headers: {
-			// 	'content-type': 'application/json',
-			// },
 			body: formData,
 		})
 			.then((res) => res.json())

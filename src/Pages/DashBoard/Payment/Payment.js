@@ -11,7 +11,7 @@ const Payment = () => {
 	const { ordersId } = useParams();
 	const [paymentInfo, setPaymentInfo] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:5000/payment/${ordersId}`)
+		fetch(`https://damp-taiga-39010.herokuapp.com/payment/${ordersId}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setPaymentInfo(data);

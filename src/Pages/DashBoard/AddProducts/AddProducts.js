@@ -24,11 +24,8 @@ const AddProducts = () => {
 		formData.append('color', color);
 		formData.append('standby', standby);
 		formData.append('description', description);
-		fetch('http://localhost:5000/addproducts', {
+		fetch('https://damp-taiga-39010.herokuapp.com/addproducts', {
 			method: 'POST',
-			// headers: {
-			// 	'content-type': 'application/json',
-			// },
 			body: formData,
 		})
 			.then((res) => res.json())
@@ -39,7 +36,7 @@ const AddProducts = () => {
 				}
 			});
 	};
-	// https://damp-taiga-39010.herokuapp.com/
+
 	useEffect(() => {
 		AOS.init();
 	}, []);
