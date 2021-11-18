@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
+import { AiFillDelete } from 'react-icons/ai';
 const ManageProducts = () => {
 	useDocTitle('Manage Product');
+	const danger = <AiFillDelete />;
 	const [allProducts, setAllProducts] = useState([]);
 	const [control, setControl] = useState(false);
 	useEffect(() => {
@@ -45,7 +47,7 @@ const ManageProducts = () => {
 									<img
 										className='img-fluid'
 										style={{ width: '150px', margin: '0 auto' }}
-										src={products.imageUrl}
+										src={`data:image/png;base64,${products.imageUrl}`}
 										alt='Vans'
 									/>
 									<div className='card-body'>
@@ -62,10 +64,10 @@ const ManageProducts = () => {
 										</div>
 									</div>
 									<button
-										className='btn btn-danger'
+										className='btn btn-danger d-flex  justify-content-center'
 										onClick={() => handelDelete(products._id)}>
 										{' '}
-										<i className='fas fa-trash-alt me-3'></i>Delete Products
+										<h6>{danger}</h6> Delete Products
 									</button>
 								</div>
 							</div>

@@ -57,6 +57,7 @@ const AllProducts = () => {
 									<img
 										className='img-fluid'
 										style={{ width: '200px', margin: '0 auto' }}
+										// src={`data:image/png;base64,${products.imageUrl}`}
 										src={products.imageUrl}
 										alt='Vans'
 									/>

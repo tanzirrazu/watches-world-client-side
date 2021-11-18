@@ -8,7 +8,9 @@ import { useAlert } from 'react-alert';
 import { useDocTitle } from '../../hooks/DocumentTitel/DocumentTitel';
 const BuyNow = () => {
 	useDocTitle('Buy Now');
-	const [details, setDetails] = useState([]);
+
+	const [details, setDetails] = useState({});
+	const { register, handleSubmit, reset } = useForm();
 	let history = useHistory();
 	const alert = useAlert();
 	const { user } = UseAuth();
@@ -18,16 +20,14 @@ const BuyNow = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				setDetails(data);
+				reset(data);
 			});
-	}, []);
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm();
+	}, [id, reset]);
+
 	const onSubmit = (data) => {
 		data.status = 'Pending';
+		delete data._id;
+
 		fetch('https://damp-taiga-39010.herokuapp.com/orders', {
 			method: 'POST',
 			headers: {
@@ -42,7 +42,6 @@ const BuyNow = () => {
 					history.push('/home');
 				}
 			});
-		console.log(data);
 	};
 	return (
 		<div>

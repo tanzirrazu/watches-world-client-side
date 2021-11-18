@@ -136,8 +136,11 @@ const DashBorad = () => {
 				</div>
 				<div className='col-xs-12 col-sm-12 col-md-10'>
 					<Switch>
-						<Route exact path={`${path}/addRating`}>
+						<Route path={`${path}/addRating`}>
 							<AddRating />
+						</Route>
+						<Route path={`${path}/payment/:ordersId`}>
+							<Payment />
 						</Route>
 						<Route path={`${path}/payment`}>
 							<Payment />

@@ -9,9 +9,15 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SwiperCore, { Pagination, EffectCoverflow, Autoplay } from 'swiper/core';
 import Rating from 'react-rating';
+import { AiFillStar } from 'react-icons/ai';
+import { BsEmojiSmile } from 'react-icons/bs';
+import { AiOutlineStar } from 'react-icons/ai';
 SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
 const Ratings = () => {
 	const [reviews, setReviews] = useState([]);
+	const star = <AiFillStar />;
+	const smile = <BsEmojiSmile />;
+	const out = <AiOutlineStar />;
 	useEffect(() => {
 		fetch('https://damp-taiga-39010.herokuapp.com/addrating')
 			.then((res) => res.json())
@@ -33,7 +39,7 @@ const Ratings = () => {
 			data-aos-duration='2000'>
 			<div className='text-center'>
 				<h1 className='fw-bold mb-5 text-decoration-underline'>
-					Our <i className='far fa-smile text-warning'></i> Customer's
+					Our <span className='text-warning'>{smile}</span> Customer's
 				</h1>
 			</div>
 
@@ -91,14 +97,18 @@ const Ratings = () => {
 										className='d-flex'
 										data-aos='zoom-in-left'
 										data-aos-duration='2000'>
-										<img style={{ width: '70px' }} src={review.photurl} alt=''></img>
+										<img
+											style={{ width: '70px' }}
+											// src={`data:image/png;base64,${review.photurl}`}
+											src={review.photurl}
+											alt=''></img>
 										<div className='ms-3 mt-1'>
 											<h4 className='fw-bold'>{review.fullName}</h4>
 											<div>
 												<h5 className='text-warning'>
 													<Rating
-														fullSymbol='fas fa-star'
-														emptySymbol='far fa-star'
+														fullSymbol={star}
+														emptySymbol={out}
 														readonly
 														initialRating={review.rate}></Rating>
 												</h5>

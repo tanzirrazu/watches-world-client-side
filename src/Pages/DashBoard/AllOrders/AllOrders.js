@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
-
-import { Table } from 'react-bootstrap';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import { Link } from 'react-router-dom';
+import { AiFillDelete } from 'react-icons/ai';
+import { GrDocumentUpdate } from 'react-icons/gr';
+import { MdPaid } from 'react-icons/md';
 const AllOrders = () => {
 	const [control, setControl] = useState(false);
 	const [orders, setOrders] = useState([]);
 	const [status, setStatus] = useState('');
+	const danger = <AiFillDelete />;
+	const update = <GrDocumentUpdate />;
+	const paid = <MdPaid />;
 
 	useEffect(() => {
 		fetch(`https://damp-taiga-39010.herokuapp.com/allOrders`)
@@ -91,13 +95,18 @@ const AllOrders = () => {
 									<button
 										onClick={() => handelDelete(order._id)}
 										className='btn btn-danger mb-2'>
-										<i className='fas fa-trash-alt'></i>
+										{danger}
 									</button>
 									<button
 										onClick={() => handelUpdate(order._id)}
 										className='btn btn-success ms-2 mb-2'>
-										<i className='fas fa-user-edit'></i>
+										{update}
 									</button>
+									{order.payment ? (
+										<button className='btn btn-secondary  ms-2 mb-2'>{paid}</button>
+									) : (
+										<span></span>
+									)}
 								</td>
 							</tr>
 						</tbody>

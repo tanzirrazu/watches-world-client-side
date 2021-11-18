@@ -44,6 +44,7 @@ function App() {
 							<Route path='/register'>
 								<Register />
 							</Route>
+
 							<PrivetRoute path='/dashboard'>
 								<DashBorad />
 							</PrivetRoute>

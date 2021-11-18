@@ -3,6 +3,7 @@ import UseAuth from '../../../hooks/UseAuth/UseAuth';
 import { useDocTitle } from '../../../hooks/DocumentTitel/DocumentTitel';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 const MyOrders = () => {
 	const [myOrders, setMyorders] = useState([]);
 	const [control, setControl] = useState(false);
@@ -60,6 +61,16 @@ const MyOrders = () => {
 									className='btn btn-danger btn-sm mt-1'>
 									Cancel
 								</button>
+
+								{orders.payment ? (
+									<button className='btn btn-secondary btn-sm ms-2 mt-1' disabled>
+										Paid
+									</button>
+								) : (
+									<Link to={`/dashboard/payment/${orders._id}`}>
+										<button className='btn btn-danger btn-sm ms-1 mt-1'>pay</button>
+									</Link>
+								)}
 							</div>
 						</div>
 					</div>
