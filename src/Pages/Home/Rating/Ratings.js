@@ -14,10 +14,11 @@ import { BsEmojiSmile } from 'react-icons/bs';
 import { AiOutlineStar } from 'react-icons/ai';
 SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
 const Ratings = () => {
-	const [reviews, setReviews] = useState([]);
 	const star = <AiFillStar />;
 	const smile = <BsEmojiSmile />;
 	const out = <AiOutlineStar />;
+	const [reviews, setReviews] = useState([]);
+
 	useEffect(() => {
 		fetch('https://damp-taiga-39010.herokuapp.com/addrating')
 			.then((res) => res.json())
